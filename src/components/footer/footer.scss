@@ -1,0 +1,57 @@
+@import '../../scss/variables.scss';
+
+.container-fluid-footer{
+  width: 100%;
+  height: 100vh;
+  background-color: $green_footer;
+  display: flex;
+}
+.continer-footer {
+  display: block;
+  position: relative;
+  width: 1440px;
+  margin: 0 auto;
+  padding: 40px;
+}
+.box-title-footer {
+  margin-top: 120px;
+  max-width: 420px;
+}
+.title-footer {
+  font-weight: 600;
+  font-family: $outstanding;
+  color: $text_dark;
+  font-size: 72px;
+  line-height: 80px;
+}
+.content-footer {
+  color: $text_dark;
+  line-height: 32px;
+  font-size: 20px;
+  font-family: $general;
+  font-weight: 400;
+}
+.content-contact {
+  & p {
+    color: $text_dark;
+    line-height: 32px;
+    font-size: 20px;
+    font-family: $general;
+    font-weight: 400;
+  }
+}
+
+.content-copyright{
+  position: absolute;
+  width: 100%;
+  bottom: 40px;
+  display: flex;
+  justify-content: space-between;
+  & p {
+    color: #5a918d;
+    line-height: 32px;
+    font-size: 20px;
+    font-family: $general;
+    font-weight: 400;
+  }
+}

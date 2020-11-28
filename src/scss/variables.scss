@@ -1,0 +1,47 @@
+// colors
+@import url('https://fonts.googleapis.com/css2?family=Hind+Guntur:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap');
+@import './mediaqueries';
+
+$primary: #94aa2a;
+$error: #E0521F;
+$white-smoke: #F1F4FA;
+
+
+
+$hover: #801513;
+$text: #263E42;
+$text_dark: #00273e;
+$white: #fff;
+$black: #222222;
+$marine_light: #081762;
+$marine_dark: #060726;
+$green_light: #91F0DC;
+$green_footer: #C4E0DE;
+
+$right-margin: 26px;
+$title_font: 24px;
+$text_font: 14px;
+
+
+// Z-index
+$z-dropdwom: 10000;
+$z-menu: 1000;
+$z-menu-mobile: 100;
+$z-menu-mobile-open: 99;
+
+$bottomImg: -10;
+// font-family
+
+$general: 'Hind Guntur', sans-serif;
+$outstanding: 'Playfair Display', serif;
+
+
+:export {
+  primary: $primary;
+  error: $error;
+  hover: $hover;
+  text: $text;
+  white: $white;
+  black: $black;
+}
