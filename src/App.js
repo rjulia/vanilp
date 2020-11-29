@@ -1,17 +1,24 @@
 import React, {useState, useEffect} from "react";
+
+
 import _ from 'lodash'
 import { Parallax } from 'react-scroll-parallax';
 import {getProjects} from './api'
-import icon from './assets/img/linkedin-icon@3x.png'
+
 import './app.scss'
 import { 
   Footer,
-  Menu
+  Menu,
+  Vani,
+  Ux,
+  PlanetHeader,
+  Whale
 } from "./components";
 
 
-function App() {
 
+function App() {
+  
   // const [projects, setProjects] = useState([]);
   // useEffect(() => {
   //   getProjects().then((response) => {
@@ -26,13 +33,15 @@ function App() {
   return (
     <>
       <div className="container">
+        <PlanetHeader />
         <Menu/>
-        <Parallax className="custom-class first" y={[0, 100]} x={[0, 20]} tagOuter="figure">
-          <h2>Vani Ip</h2>
+        <Parallax className="custom-class first" y={[0, 5]} x={[0, -20]} tagOuter="figure">
+         <Vani />
         </Parallax>
-        <Parallax className="custom-class" y={[0, 100]} x={["50%", -20]} tagOuter="figure">
-          <h2>UI/UX Designer</h2>
+        <Parallax className="custom-class" y={[0, 5]} x={[0, 20]} tagOuter="figure">
+          <Ux/>
         </Parallax>
+        <Whale/>
       </div>
       <Footer />
     </>
