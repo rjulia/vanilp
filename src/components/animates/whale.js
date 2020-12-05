@@ -20,7 +20,7 @@ const Whale = () => {
       right: '150px',
       position: 'absolute',
       width:'1000px',
-      zIndex: 1,
+      zIndex: 2,
       }}>
       <img 
         src={whale}

@@ -1,0 +1,37 @@
+@import "../../scss/variables.scss";
+
+.container-profile {
+  width: 100%;
+  position: relative;
+}
+.title {
+  width: 400px;
+  font-weight: 600;
+  font-size: 72px;
+  line-height: 80px;
+  font-family: $outstanding;
+  color: $white-smoke;
+}
+
+.box-profile {
+  display: flex;
+  flex-direction: row;
+  padding-top: 320px;
+}
+.content-profile {
+  flex: 0 0 70%;
+  & p {
+    color: #f1f4fa;
+    font-size: 20px;
+    line-height: 34px;
+    font-family: $general;
+  }
+}
+
+.image-profile {
+  flex: 0 0 30%;
+  padding: 0 57px;
+  & img {
+    width: 50%;
+  }
+}

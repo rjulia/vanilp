@@ -1,5 +1,6 @@
 import React from 'react'
 import './footer.scss'
+import planet from '../../assets/img/Planet.png'
 
 const Footer = () => {
   return (
@@ -23,7 +24,12 @@ const Footer = () => {
             <p>VANIIIP © 2020</p>
             <p>Designed by Vani Ip 	Developed by Ramon Julia</p>
         </div>
-
+        <div className="moon-footer">
+          <img 
+            src={planet}
+            style={{width: '100%'}}
+            alt=""/>
+        </div>
       </div>
     </div>
   )

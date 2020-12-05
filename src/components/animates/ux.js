@@ -25,7 +25,7 @@ const Ux = () => {
     <defs>
       <filter id="water">
         <AnimFeTurbulence type="fractalNoise" baseFrequency={freq} numOctaves="1.5" result="TURB" seed="8" />
-        {/* <AnimFeDisplacementMap xChannelSelector="R" yChannelSelector="G" in="SourceGraphic" in2="TURB" result="DISP" scale={scale} /> */}
+        <AnimFeDisplacementMap xChannelSelector="R" yChannelSelector="G" in="SourceGraphic" in2="TURB" result="DISP" scale={scale} />
       </filter>
     </defs>
     <g filter="url(#water)">
