@@ -1,5 +1,6 @@
 import _ from 'lodash'
 import React, { useRef, useState, useEffect } from 'react'
+import { Link, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 import {useSpring} from 'react-spring'
 import { Parallax } from 'react-scroll-parallax';
 import {getProjects} from '../../api'
@@ -80,6 +81,7 @@ const Home = props => {
         </Parallax>
       </div>
       <div className="secction" ref={ref}>
+        <Element name="about" className="element"></Element>
         <Parallax className="box-about">
           {offset && offset.getValue() > innerHeight * 1.5  && <About />}
         </Parallax>
@@ -90,6 +92,7 @@ const Home = props => {
         </Parallax>
       </div>
       <div className="secction" ref={ref}>
+        <Element name="projects" className="element"></Element>
         <Parallax className="box-about">
           {
             offset && offset.getValue() > innerHeight * 4  
@@ -97,6 +100,7 @@ const Home = props => {
           }
         </Parallax>
       </div>
+      <Element name="contact" className="element"></Element>
       <Footer />
     </div>
   )

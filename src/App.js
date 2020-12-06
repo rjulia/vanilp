@@ -5,7 +5,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import { Home, Project} from './pages'
+import { Home, Project, NoMatch} from './pages'
 
 
 
@@ -24,11 +24,14 @@ function App() {
       {/* A <Switch> looks through its children <Route>s and
           renders the first one that matches the current URL. */}
       <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
         <Route path="/project/:slug">
           <Project />
         </Route>
-        <Route path="/">
-          <Home />
+        <Route path="*">
+          <NoMatch />
         </Route>
       </Switch>
   </Router>
