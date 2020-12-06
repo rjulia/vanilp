@@ -7,6 +7,7 @@ export const queryProjects = `
       id
       title
       description
+      slug
       picture{
         size
         title

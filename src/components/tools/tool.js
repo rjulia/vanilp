@@ -9,7 +9,7 @@ const Tool = ({title, subtitle, percentage}) => {
     from: {
       width: `5%`,
     },
-    config: { duration: 1000 }
+    config: { duration: 1500 }
   })
 
   return (

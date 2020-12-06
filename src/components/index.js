@@ -6,6 +6,7 @@ import PlanetHeader from './animates/planet-header'
 import Whale from './animates/whale'
 import About from './about/about'
 import BeWhale from './bewhale/bewhale'
+import MyProjects from './myProjects'
 
 
 export {
@@ -13,8 +14,9 @@ export {
   BeWhale,
   Footer,
   Menu,
+  MyProjects,
+  PlanetHeader,
   Vani,
   Ux,
-  PlanetHeader,
   Whale
 }
