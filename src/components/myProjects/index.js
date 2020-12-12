@@ -33,7 +33,14 @@ const MyProjects = ({ projects }) => {
             {project.description}
           </p>
 
-          <Link style={{textDecoration: 'none'}} to={`/project/${project.slug}`}>
+          <Link 
+            style={{textDecoration: 'none'}} 
+            to={{
+              pathname: `/project/${project.slug}`,
+              state: {
+                id: project.sys.id
+              }
+            }} >
             <div className="button-item-carousel">
               <span>Discover the project</span>
               <img src={RightArrow} alt="arrow"></img>

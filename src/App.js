@@ -27,9 +27,7 @@ function App() {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route path="/project/:slug">
-          <Project />
-        </Route>
+        <Route path="/project/:slug" component={Project}/>
         <Route path="*">
           <NoMatch />
         </Route>

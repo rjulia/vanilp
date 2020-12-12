@@ -26,7 +26,7 @@ export const getProjects = async () => {
   }
 }
 
-export const getProject = async (id = "3MjcSrohUmmq7RJNAxU7cx") => {
+export const getProject = async (id) => {
   try {
     const response = await axios({
       method: 'post',
@@ -57,7 +57,7 @@ export const getProject = async (id = "3MjcSrohUmmq7RJNAxU7cx") => {
       }
     })
 
-    // console.log(response)
+    //console.log(response)
     return response.data
 
   } catch (error) {
