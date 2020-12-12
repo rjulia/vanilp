@@ -7,6 +7,8 @@ import Whale from './animates/whale'
 import About from './about/about'
 import BeWhale from './bewhale/bewhale'
 import MyProjects from './myProjects'
+import IconMenu from './icon-menu'
+import MenuOverhead from './menu-overhead'
 
 
 export {
@@ -18,5 +20,7 @@ export {
   PlanetHeader,
   Vani,
   Ux,
-  Whale
+  Whale,
+  IconMenu,
+  MenuOverhead
 }

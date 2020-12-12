@@ -1,0 +1,13 @@
+.container-icon-menu{
+  position: fixed;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  top: 60px;
+  right: 165px;
+  z-index: 1000;
+}
+
+.box-icon-menu {
+  cursor: pointer;
+}

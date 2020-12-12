@@ -1,0 +1,41 @@
+@import '../../scss/variables.scss';
+
+.container-menu-overhead {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #E46A45;
+  z-index: 100;
+  opacity: 0.95;
+}
+.box-menu-overhead {
+  width: 1440px;
+  margin: auto;
+  position: relative;
+  margin-top: 60px;
+  padding-top: 60px;
+  & ul {
+    list-style: none;
+  }
+  & li {
+    margin-right: 60px;
+    margin-bottom: 60px;
+    font-family: $outstanding;
+    font-weight: 600;
+    font-size: 72px;
+    line-height: 80px;
+    color: $white-smoke;
+    cursor: pointer;
+    &:hover {
+      color:#91F0DC;
+    }
+  }
+}
+.close-icon {
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+}

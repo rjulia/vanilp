@@ -25,3 +25,43 @@ export const getProjects = async () => {
     console.log("error", error);
   }
 }
+
+export const getProject = async (id = "3MjcSrohUmmq7RJNAxU7cx") => {
+  try {
+    const response = await axios({
+      method: 'post',
+      url,
+      data: {
+        query:`
+          query ProjectById {
+            project(id:"${id}") {
+              id
+              title
+              description
+              slug
+              picture{
+                size
+                title
+                width
+                height
+                fileName
+                url
+              }
+            }
+          }
+        `
+      },
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${process.env.REACT_APP_CONTENFUL_TOKEN}`,
+      }
+    })
+
+    // console.log(response)
+    return response.data
+
+  } catch (error) {
+    console.log("error", error);
+  }
+}
+

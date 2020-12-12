@@ -1,7 +1,6 @@
 import _ from 'lodash'
 import React, { useRef, useState, useEffect } from 'react'
-import { Link, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
-import {useSpring} from 'react-spring'
+import { Element} from 'react-scroll'
 import { Parallax } from 'react-scroll-parallax';
 import {getProjects} from '../../api'
 import Linkedin from '../../assets/svg/Linkedin.svg'
@@ -16,12 +15,15 @@ import {
   Whale,
   About,
   BeWhale,
-  MyProjects
+  MyProjects,
+  IconMenu,
+  MenuOverhead
 } from "../../components";
 
 const Home = props => {
 
   const [projects, setProjects] = useState([]);
+  const [isOpenMenu, setIsOpenMenu] = useState(false)
   useEffect(() => {
     getProjects().then((response) => {
       setProjects(_.get(response, 'data.projectCollection.items')) 
@@ -32,17 +34,15 @@ const Home = props => {
   const [pageYOffset, setPageYOffset] = useState(0)
   const [innerHeight, setInnerHeight] = useState(0)
   
-  const [{ offset }, set] = useSpring(() => ({ offset: 0 }))
-  const handleScroll = () => {
+  const handleScroll = (event) => {
     const posY = ref.current.getBoundingClientRect().top;
-    setPageYOffset(window.pageYOffset)
     setInnerHeight(window.innerHeight)
     const offset = window.pageYOffset - posY;
-    set({offset});
+    setPageYOffset(offset)
   };
+
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
-
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -51,9 +51,26 @@ const Home = props => {
   if (!projects) {
     return "Loading...";
   }
-  console.log(projects)
+
+  const onOpenMenu = () => {
+    setIsOpenMenu(!isOpenMenu)
+    addClassBody(isOpenMenu)
+  }
+  
+  const addClassBody = (menu) => {
+    if (!menu) {
+      document.body.style.overflow = "hidden"
+      document.body.style.height = "100%"
+    } else {
+      document.body.style.overflow = "auto"
+      document.body.style.height = "auto"
+    }
+  }
   return (
-    <div className="container-fluid" ref={ref}>
+    <div ref={ref}>
+      {
+        !isOpenMenu && <IconMenu offset={pageYOffset} onOpenMenu={onOpenMenu}/>
+      }
       <Parallax styleInner={{
           position: 'absolute',
           height: 'calc(100vh * 2)',
@@ -83,25 +100,28 @@ const Home = props => {
       <div className="secction" ref={ref}>
         <Element name="about" className="element"></Element>
         <Parallax className="box-about">
-          {offset && offset.getValue() > innerHeight * 1.5  && <About />}
+          {pageYOffset > innerHeight * 1.5  && <About />}
         </Parallax>
       </div>
       <div className="secction" ref={ref}>
         <Parallax className="box-about" styleInner={{width: '100%'}}>
-          {offset && offset.getValue() > innerHeight * 3  && <BeWhale />}
+          {pageYOffset > innerHeight * 3  && <BeWhale />}
         </Parallax>
       </div>
       <div className="secction" ref={ref}>
         <Element name="projects" className="element"></Element>
         <Parallax className="box-about">
           {
-            offset && offset.getValue() > innerHeight * 4  
+            pageYOffset > innerHeight * 4  
             && <MyProjects projects={projects} />
           }
         </Parallax>
       </div>
       <Element name="contact" className="element"></Element>
       <Footer />
+      {
+        isOpenMenu && <MenuOverhead onOpenMenu={onOpenMenu}/>
+      }
     </div>
   )
 }
