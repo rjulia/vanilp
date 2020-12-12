@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Menu from '../../assets/svg/Menu.svg'
+import Menu from '../../assets/svg/menu-icon.svg'
 import { useSpring, animated } from 'react-spring'
 import './icon-menu.scss'
 

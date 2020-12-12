@@ -1,7 +1,7 @@
 import React from 'react'
 import './menu-overhead.scss'
 import Close from '../../assets/svg/close.svg'
-import { Link, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import { Link } from 'react-scroll'
 
 const MemuOverhead = ({onOpenMenu}) => {
   return (

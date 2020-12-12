@@ -1,6 +1,6 @@
 import React from 'react'
 import './menu.scss'
-import { Link, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import { Link } from 'react-scroll'
 
 const Menu = () => {
   return (
