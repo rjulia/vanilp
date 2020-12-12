@@ -36,16 +36,55 @@ export const getProject = async (id) => {
           query ProjectById {
             project(id:"${id}") {
               id
+              url
+              slug
               title
               description
-              slug
               picture{
-                size
                 title
-                width
-                height
                 fileName
                 url
+              }
+              personaText
+              personaImagesCollection{
+                total
+                items{
+                  url
+                  title
+                }
+              }
+              competitiveText
+              competitiveImage {
+                title
+                url
+              }
+              wireframesText
+              wireframesImagesCollection{
+                total
+                items{
+                  url
+                  title
+                }
+              }
+              uiText
+              uiImagesCollection{
+                total
+                items{
+                  url
+                  title
+                }
+              }
+              conceptVideoText
+              conceptVideoVideo{
+                url
+                title
+              }
+              showcaseImagesCollection{
+                total
+                items{
+                  url
+                  title
+                }
               }
             }
           }
