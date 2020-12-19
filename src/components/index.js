@@ -9,6 +9,7 @@ import BeWhale from './bewhale/bewhale'
 import MyProjects from './myProjects'
 import IconMenu from './icon-menu'
 import MenuOverhead from './menu-overhead'
+import ScrollToTop from './scroll-to-top'
 
 
 export {
@@ -22,5 +23,6 @@ export {
   Ux,
   Whale,
   IconMenu,
-  MenuOverhead
+  MenuOverhead,
+  ScrollToTop
 }

@@ -67,15 +67,13 @@ const Home = props => {
     }
   }
   return (
-    <div ref={ref}>
-      {
-        !isOpenMenu && <IconMenu offset={pageYOffset} onOpenMenu={onOpenMenu}/>
-      }
+    <div ref={ref} style={{position: 'relative', backgroundColor: '#060726'}}>
+      <IconMenu offset={pageYOffset} onOpenMenu={onOpenMenu} isOpenMenu={isOpenMenu}/>
       <Parallax styleInner={{
           position: 'absolute',
           height: 'calc(100vh * 2)',
           top: 'calc(100vh - 350px)',
-          zIndex: 100,
+          zIndex: 2,
           left: '50px'
         }}
         y={['-420px', '300px']} 
@@ -119,9 +117,7 @@ const Home = props => {
       </div>
       <Element name="contact" className="element"></Element>
       <Footer />
-      {
-        isOpenMenu && <MenuOverhead onOpenMenu={onOpenMenu}/>
-      }
+      <MenuOverhead onOpenMenu={onOpenMenu} isOpenMenu={isOpenMenu}/>
     </div>
   )
 }

@@ -5,23 +5,13 @@ import {
   Route,
 } from "react-router-dom";
 import { Home, Project, NoMatch} from './pages'
-
-
+import {ScrollToTop} from './components'
 
 function App() {
-
-
-  // const onScroll = useCallback(e => void set({ scroll: e.target.scrollTop / (window.innerHeight / 2) }), [])
-  // const calc = o => `translateY(-${o * 0.2}px)`;
-  // const op = x =>{
-  //   const num = _.ceil(Math.abs(x) - innerHeight/1.2)/1000 
-  //   return num
-  // }
  
   return (
     <Router>
-      {/* A <Switch> looks through its children <Route>s and
-          renders the first one that matches the current URL. */}
+      <ScrollToTop/>
       <Switch>
         <Route exact path="/">
           <Home />

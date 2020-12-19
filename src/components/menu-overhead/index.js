@@ -3,9 +3,9 @@ import './menu-overhead.scss'
 import Close from '../../assets/svg/close.svg'
 import { Link } from 'react-scroll'
 
-const MemuOverhead = ({onOpenMenu}) => {
+const MemuOverhead = ({onOpenMenu, isOpenMenu}) => {
   return (
-    <div className="container-menu-overhead">
+    <div className={isOpenMenu ? 'container-menu-overhead is-open-conteiner ': 'container-menu-overhead is-close-conteiner '}>
       <div className="box-menu-overhead">
       <div
         onClick={onOpenMenu}
@@ -13,7 +13,10 @@ const MemuOverhead = ({onOpenMenu}) => {
         >
         <img src={Close} alt='close'/>
       </div>
-        <ul>
+        <ul className={
+          isOpenMenu
+            ? 'menu is-open'
+            :'menu is-close'}>
           <Link
             onClick={onOpenMenu}
             activeClass="active" 
@@ -60,6 +63,7 @@ const MemuOverhead = ({onOpenMenu}) => {
           </Link>
         </ul>
       </div>
+      <div className={isOpenMenu ? 'badground-menu is-open-badground-menu ': 'badground-menu is-close-badground-menu'}></div>
     </div>
   )
 }
