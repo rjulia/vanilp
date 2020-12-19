@@ -1,15 +1,20 @@
 import _ from 'lodash'
-import React, { useEffect, useState} from 'react'
+import React, { useEffect, useState, useRef} from 'react'
 import './project.scss'
 import {
   useParams
 } from "react-router-dom"
 import { getProject } from '../../api';
+import {IconMenu, MenuOverhead} from '../../components'
 
 const Project = (props) => {
   let params = useParams();
+  const ref = useRef();
   const { location } = props 
   const [project, setProject] = useState({})
+  const [pageYOffset, setPageYOffset] = useState(0)
+  const [innerHeight, setInnerHeight] = useState(0)
+  const [isOpenMenu, setIsOpenMenu] = useState(false)
 
   const apiGetProject = () => {
     getProject(_.get(location, 'state.id')).then((response) => {
@@ -17,14 +22,48 @@ const Project = (props) => {
       setProject(_.get(response, 'data.project')) 
     })
   }
+  const handleScroll = (event) => {
+    const posY = ref.current.getBoundingClientRect().top;
+    setInnerHeight(window.innerHeight)
+    const offset = window.pageYOffset - posY;
+    setPageYOffset(offset)
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  });
+
   useEffect(() => {
     apiGetProject()
   }, [])
 
+  const onOpenMenu = () => {
+    setIsOpenMenu(!isOpenMenu)
+    addClassBody(isOpenMenu)
+  }
+
+  const addClassBody = (menu) => {
+    if (!menu) {
+      document.body.style.overflow = "hidden"
+      document.body.style.height = "100%"
+    } else {
+      document.body.style.overflow = "auto"
+      document.body.style.height = "auto"
+    }
+  }
+
   console.log(project)
 
   return (
-    <div className="container-fluid-project">
+    <div ref={ref} className="container-fluid-project">
+      <IconMenu 
+        offset={pageYOffset} 
+        onOpenMenu={onOpenMenu} 
+        isOpenMenu={isOpenMenu}
+      />
       <div>
         <div>
           <img src={''} alt=""/>
@@ -142,6 +181,8 @@ const Project = (props) => {
             <p>Designed by Vani Ip 	Developed by Ramon Julia</p>
         </div>
       </div>
+      <MenuOverhead onOpenMenu={onOpenMenu} isOpenMenu={isOpenMenu}/>
+
     </div>
   )
 }

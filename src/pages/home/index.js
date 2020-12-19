@@ -68,7 +68,12 @@ const Home = props => {
   }
   return (
     <div ref={ref} style={{position: 'relative', backgroundColor: '#060726'}}>
-      <IconMenu offset={pageYOffset} onOpenMenu={onOpenMenu} isOpenMenu={isOpenMenu}/>
+      <IconMenu 
+        offset={pageYOffset} 
+        onOpenMenu={onOpenMenu} 
+        isOpenMenu={isOpenMenu}
+        isAtHome
+      />
       <Parallax styleInner={{
           position: 'absolute',
           height: 'calc(100vh * 2)',

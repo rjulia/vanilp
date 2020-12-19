@@ -1,3 +1,5 @@
+@import '../../scss/variables.scss';
+
 .container-icon-menu{
   position: fixed;
   display: flex;
@@ -16,4 +18,8 @@
 
 .box-icon-menu {
   cursor: pointer;
+  color: $marine_dark;
+  &.dark svg {
+    color: $white-smoke;
+  }
 }

@@ -4,10 +4,10 @@ import planet from '../../assets/img/Planet.png'
 
 const PlanetHeader = () => {
   const { top, opacity } = useSpring({
-    top: -200,
+    top: -300,
     opacity: 1,
     from: { 
-      top: -300,
+      top: -400,
       opacity: 0
      },
     config: { duration: 1000 }
