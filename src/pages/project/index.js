@@ -1,5 +1,6 @@
 import _ from 'lodash'
 import React, { useEffect, useState, useRef} from 'react'
+import { Parallax } from 'react-scroll-parallax';
 import './project.scss'
 import {
   useParams
@@ -76,25 +77,31 @@ const Project = (props) => {
             <p>{_.get(project, 'description')}</p>
           </div>
           <div className="content-image">
+          <Parallax y={['-400px', '200px']}>
             <img 
               src={_.get(project, 'picture.url')}
               alt={_.get(project, 'picture.title')}
             />
+           </Parallax>
           </div>
         </div>
         {
           project.personaText && (
             <div className="box-persona">
               <div className="content-image">
+              <Parallax y={['300px', '-500px']}>
                 <img 
                   src={_.get(project, 'personaImagesCollection.items[0].url')}
                   alt={_.get(project, 'personaImagesCollection.items[0].title')}
                 />
+              </Parallax>
+              <Parallax y={['0px', '-1200px']}>
                 <img
                   className="second-image" 
                   src={_.get(project, 'personaImagesCollection.items[1].url')}
                   alt={_.get(project, 'personaImagesCollection.items[1].title')}
                 />
+              </Parallax>
               </div>
               <div className="content-sections">
                 <h1>Persona</h1>
@@ -112,10 +119,12 @@ const Project = (props) => {
                   <p>{_.get(project, 'personaText')}</p>
                 </div>
                 <div className="content-image">
+                <Parallax x={['200px', '0px']}>
                   <img 
                     src={_.get(project, 'competitiveImage.url')}
                     alt={_.get(project, 'competitiveImage.title')}
                   />
+                </Parallax>
                 </div>
               </div>
             </div>

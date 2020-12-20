@@ -1,9 +1,11 @@
 import React from 'react'
+import {Carousel} from '../../components'
+import './nomach.scss'
 
 const NoMatch = () => {
   return (
-    <div>
-      No NoMatch
+    <div className='container-nomatch'>
+     <Carousel/>
     </div>
   )
 }

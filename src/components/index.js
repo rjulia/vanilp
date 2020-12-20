@@ -10,6 +10,7 @@ import MyProjects from './myProjects'
 import IconMenu from './icon-menu'
 import MenuOverhead from './menu-overhead'
 import ScrollToTop from './scroll-to-top'
+import Carousel from './carousel'
 
 
 export {
@@ -24,5 +25,6 @@ export {
   Whale,
   IconMenu,
   MenuOverhead,
-  ScrollToTop
+  ScrollToTop,
+  Carousel
 }
