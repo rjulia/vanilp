@@ -15,6 +15,7 @@ const Project = (props) => {
   const [project, setProject] = useState({})
   const [pageYOffset, setPageYOffset] = useState(0)
   const [innerHeight, setInnerHeight] = useState(0)
+  const [innerWidth, setInnerWidth] = useState(0)
   const [isOpenMenu, setIsOpenMenu] = useState(false)
 
   const apiGetProject = () => {
@@ -31,11 +32,12 @@ const Project = (props) => {
   };
 
   useEffect(() => {
+    setInnerWidth(window.innerWidth)
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  });
+  }, []);
 
   useEffect(() => {
     apiGetProject()
@@ -56,8 +58,6 @@ const Project = (props) => {
     }
   }
 
-  console.log(project)
-
   return (
     <div ref={ref} className="container-fluid-project">
       <IconMenu 
@@ -77,7 +77,7 @@ const Project = (props) => {
             <p>{_.get(project, 'description')}</p>
           </div>
           <div className="content-image">
-          <Parallax y={['-400px', '200px']}>
+          <Parallax y={innerWidth > 375 ? ['-400px', '200px'] : [0,0]}>
             <img 
               src={_.get(project, 'picture.url')}
               alt={_.get(project, 'picture.title')}
@@ -89,13 +89,13 @@ const Project = (props) => {
           project.personaText && (
             <div className="box-persona">
               <div className="content-image">
-              <Parallax y={['300px', '-500px']}>
+              <Parallax y={innerWidth > 375 ? ['300px', '-500px'] : [0,0] }>
                 <img 
                   src={_.get(project, 'personaImagesCollection.items[0].url')}
                   alt={_.get(project, 'personaImagesCollection.items[0].title')}
                 />
               </Parallax>
-              <Parallax y={['0px', '-1200px']}>
+              <Parallax y={innerWidth > 375 ? ['0px', '-1200px'] : [0,0] }>
                 <img
                   className="second-image" 
                   src={_.get(project, 'personaImagesCollection.items[1].url')}
@@ -119,7 +119,7 @@ const Project = (props) => {
                   <p>{_.get(project, 'personaText')}</p>
                 </div>
                 <div className="content-image">
-                <Parallax x={['200px', '0px']}>
+                <Parallax x={innerWidth > 375 ? ['200px', '0px'] : [0,0] }>
                   <img 
                     src={_.get(project, 'competitiveImage.url')}
                     alt={_.get(project, 'competitiveImage.title')}
