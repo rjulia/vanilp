@@ -67,6 +67,11 @@
 .box-about {
   display: flex;
   position: relative;
-  width: 1440px;
+  width: 100%;
   margin: 0 auto;
+  @include desktop {
+    padding: 0;
+    width: 1440px;
+
+  }
 }

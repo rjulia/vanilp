@@ -2,7 +2,7 @@ import React from 'react'
 import {useSpring, animated} from 'react-spring'
 import whale from '../../assets/img/Whale.png'
 
-const Whale = () => {
+const Whale = ({innerWidth}) => {
   const { top, opacity } = useSpring({
     top: 216,
     opacity: 1,
@@ -17,9 +17,9 @@ const Whale = () => {
     <animated.div style={{
       top,
       opacity,
-      right: '150px',
+      right: innerWidth > 420 ? '150px':'-50px',
       position: 'absolute',
-      width:'1000px',
+      width: innerWidth > 420 ? '1000px':'500px',
       zIndex: 2,
       }}>
       <img 

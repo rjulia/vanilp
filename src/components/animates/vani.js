@@ -5,7 +5,7 @@ import name from '../../const/name'
 const AnimFeTurbulence = animated('feTurbulence')
 const AnimFeDisplacementMap = animated('feDisplacementMap')
 
-const Vani = () => {
+const Vani = ({innerWidth}) => {
   const [open, toggle] = useState(false)
   const { freq, scale, transform, opacity } = useSpring({
     reverse: open,
