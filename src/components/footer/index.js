@@ -3,12 +3,12 @@ import './footer.scss'
 import planet from '../../assets/img/Planet.png'
 import { Parallax } from 'react-scroll-parallax';
 
-const Footer = () => {
+const Footer = ({ innerWidth }) => {
   return (
 
     <div className="container-fluid-footer">
       <div className="continer-footer">
-        <Parallax y={['-100px', '200px']}>
+        <Parallax y={innerWidth > 420 ? ['-100px', '200px'] : ['-100px', '100px']}>
           <div className='box-title-footer'>
             <h3 className="title-footer">
               Get in touch

@@ -11,54 +11,101 @@
   position: relative;
   width: 1440px;
   margin: 0 auto;
-  padding: 40px;
+  padding: 20px;
+  @include desktop {
+    padding: 40px;
+  }
 }
 .box-title-footer {
-  margin-top: 120px;
+  margin-top: 60px;
   max-width: 420px;
+  @include desktop {
+    margin-top: 120px;
+    
+  }
 }
 .title-footer {
   font-weight: 600;
   font-family: $outstanding;
   color: $text_dark;
-  font-size: 72px;
-  line-height: 80px;
+  font-size: 48px;
+  line-height: 52px;
+  margin-top: 0;
+  margin-bottom: 20px;
+  @include desktop {
+    font-size: 72px;
+    line-height: 80px;
+  }
 }
 .content-footer {
   color: $text_dark;
-  line-height: 32px;
-  font-size: 20px;
+  font-size: 14px;
+  line-height: 18px;
   font-family: $general;
   font-weight: 400;
+  @include desktop {
+    font-size: 20px;
+    line-height: 32px;
+  }
 }
 .content-contact {
+  margin-top: 50px;
   & p {
     color: $text_dark;
-    line-height: 32px;
-    font-size: 20px;
+    font-size: 14px;
+    line-height: 18px;
     font-family: $general;
     font-weight: 400;
+  }
+  @include desktop {
+    margin-top: 0;
+    p {
+      margin-top: 0;
+      font-size: 20px;
+      line-height: 32px;
+
+    }
   }
 }
 
 .content-copyright{
-  position: absolute;
   width: 100%;
   bottom: 40px;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  align-items: center;
+  left: 0;
   & p {
     color: #5a918d;
-    line-height: 32px;
-    font-size: 20px;
+    line-height: 18px;
+    font-size: 14px;
     font-family: $general;
     font-weight: 400;
+    margin: 0;
+    margin-bottom: 10px;
+  }
+  @include desktop {
+    align-items: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
+
+    & p {
+      line-height: 32px;
+      font-size: 20px;
+    }
   }
 }
 
 .moon-footer {
   position: absolute;
-  right: -20%;
-  width: 660px;
+  right: -60%;
+  width: 400px;
   top: 10%;
+  @include desktop {
+    right: -20%;
+    width: 660px;
+    top: 10%;
+  }
 }

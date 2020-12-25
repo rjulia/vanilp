@@ -21,7 +21,12 @@
   position: relative;
   width: 100%;
   height: 100vh;
-
+  &.section-project {
+    height: 170vh;
+    @include desktop {
+      height: 100vh;
+    }
+  }
 }
 
 .container {
@@ -64,9 +69,14 @@
   }
 }
 
-.box-about {
+.box-sections {
   display: flex;
   position: relative;
-  width: 1440px;
+  width: 100%;
   margin: 0 auto;
+  @include desktop {
+    padding: 0;
+    width: 1440px;
+
+  }
 }

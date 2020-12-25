@@ -3,15 +3,17 @@ import { useSpring, animated } from 'react-spring'
 import './about.scss'
 import Tools from '../tools/tools'
 import profilepic from '../../assets/img/profilepic.png'
-const About = () => {
+const About = ({innerWidth}) => {
   const { left, opacity } = useSpring({
     opacity: 1,
-    left: 0,
+    left: innerWidth > 420 ? 0 : 20,
     from: {
       left: -100,
       opacity: 0
     },
-    config: { duration: 1000 }
+    config: { 
+      duration: innerWidth > 420 ? 1000 : 500, 
+    }
   })
 
   return (
@@ -22,7 +24,7 @@ const About = () => {
         opacity,
         zIndex: 2,
       }}>
-        <p className="title">About me</p>
+        <p className="title-about">About me</p>
       </animated.div>
       <div className='box-profile'>
         <div className="content-profile">

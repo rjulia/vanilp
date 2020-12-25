@@ -33,6 +33,8 @@ const Home = props => {
   const ref = useRef();
   const [pageYOffset, setPageYOffset] = useState(0)
   const [innerHeight, setInnerHeight] = useState(0)
+  const [innerWidth, setInnerWidth] = useState(0)
+
   
   const handleScroll = (event) => {
     const posY = ref.current.getBoundingClientRect().top;
@@ -42,11 +44,12 @@ const Home = props => {
   };
 
   useEffect(() => {
+    setInnerWidth(window.innerWidth)
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  });
+  }, []);
 
   if (!projects) {
     return "Loading...";
@@ -79,7 +82,7 @@ const Home = props => {
           height: 'calc(100vh * 2)',
           top: 'calc(100vh - 350px)',
           zIndex: 2,
-          left: '50px'
+          left: innerWidth > 420 ? '50px' : '20px'
         }}
         y={['-420px', '300px']} 
         tagOuter="div">
@@ -88,40 +91,40 @@ const Home = props => {
         </a>
       </Parallax>
       <div className="secction container">
-        <PlanetHeader />
+        <PlanetHeader innerWidth={innerWidth} />
         <Menu/>
         <Parallax className="main-title first" y={[0, 5]} x={[0, -20]} tagOuter="figure">
-         <Vani />
+         <Vani innerWidth={innerWidth}/>
         </Parallax>
         <Parallax className="main-title" y={[0, 5]} x={[0, 20]} tagOuter="figure">
           <Ux/>
         </Parallax>
         <Parallax className="box-whale" y={[-10, 30]} tagOuter="div">
-          <Whale/>
+          <Whale innerWidth={innerWidth}/>
         </Parallax>
       </div>
       <div className="secction" ref={ref}>
         <Element name="about" className="element"></Element>
-        <Parallax className="box-about">
-          {pageYOffset > innerHeight * 1.5  && <About />}
+        <Parallax className="box-sections">
+          {pageYOffset > innerHeight * 1.5  && <About innerWidth={innerWidth}/>}
         </Parallax>
       </div>
       <div className="secction" ref={ref}>
-        <Parallax className="box-about" styleInner={{width: '100%'}}>
-          {pageYOffset > innerHeight * 3  && <BeWhale />}
+        <Parallax className="box-sections" styleInner={{width: '100%'}}>
+          {pageYOffset > innerHeight * 3  && <BeWhale innerWidth={innerWidth} />}
         </Parallax>
       </div>
-      <div className="secction" ref={ref}>
+      <div className="secction section-project" ref={ref}>
         <Element name="projects" className="element"></Element>
-        <Parallax className="box-about">
+        <Parallax className="box-sections">
           {
             pageYOffset > innerHeight * 4  
-            && <MyProjects projects={projects} />
+            && <MyProjects projects={projects} innerWidth={innerWidth}/>
           }
         </Parallax>
       </div>
       <Element name="contact" className="element"></Element>
-      <Footer />
+      <Footer innerWidth={innerWidth} />
       <MenuOverhead onOpenMenu={onOpenMenu} isOpenMenu={isOpenMenu}/>
     </div>
   )

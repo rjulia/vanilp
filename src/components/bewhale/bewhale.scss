@@ -11,7 +11,7 @@
 
 .background-be-whale {
   z-index: -1;
-  top: 35%;
+  top: 50%;
   left: 50%;
   border-radius: 50%;
   position: absolute;
@@ -20,23 +20,35 @@
   transform: translate(-50%, -50%);
   opacity: 0.2;
   filter: blur(50px);
-  background: radial-gradient(circle, rgba(145,240,220,1) 0%, rgba(6,7,38,1) 75%)
+  background: radial-gradient(circle, rgba(145,240,220,1) 0%, rgba(6,7,38,1) 75%);
+  @include desktop {
+    top: 35%;
+  }
 }
 
 .title-be-whale {
-  margin-top: 265px;
+  margin-top: 300px;
   margin-bottom: 0;
-  font-size: 60px;
-  line-height: 1.13;
+  font-size: 36px;
   font-family: $outstanding;
   color: $white-smoke;
+  @include desktop {
+    margin-top: 265px;
+    line-height: 1.13;
+    font-size: 60px;
+
+  }
 }
 
 .text-be-whale {
-  font-size: 24px;
+  font-size: 14px;
   line-height: 1.13;
   font-family: $general;
   color: $white-smoke;
+  @include desktop {
+    font-size: 24px;
+
+  }
 }
 
 .image-be-whale {

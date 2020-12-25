@@ -21,7 +21,7 @@
   position: fixed;
   z-index: -1;
   top: 60px;
-  right: 60px;
+  right: 16px;
   width: 20px;
   height: 20px;
   opacity: 0.98;
@@ -34,21 +34,26 @@
   &.is-close-badground-menu {
     transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1) 0s;
     transform: scale(0);
-
+  }
+  @include desktop {
+    top: 60px;
+    right: 60px;
   }
 }
 
 
 .box-menu-overhead {
   position: fixed;
-  width: calc(100vw - 120px);
+  width: calc(100vw - 32px);
   height: 100vh;
   margin-top: 60px;
-  margin: 60px 60px 0;
+  margin: 60px 16px 0;
   padding-top: 60px;
   & .menu {
     list-style: none;
     position: absolute;
+    padding-left: 0px;
+
     &.is-open {
       left: 10px;
       transition: left 0.8s cubic-bezier(0.86, 0, 0.07, 1) 0s;
@@ -63,12 +68,22 @@
     margin-bottom: 60px;
     font-family: $outstanding;
     font-weight: 600;
-    font-size: 72px;
-    line-height: 80px;
+    font-size: 48px;
+    line-height: 52px;
     color: $white-smoke;
     cursor: pointer;
     &:hover {
       color:#91F0DC;
+    }
+  }
+  @include desktop {
+    margin: 60px 60px 0;
+    & .menu {
+      padding-left: 40px;
+    }
+    & li { 
+      font-size: 72px;
+      line-height: 80px;
     }
   }
 }

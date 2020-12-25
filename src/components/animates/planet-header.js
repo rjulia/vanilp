@@ -2,12 +2,12 @@ import React from 'react'
 import {useSpring, animated} from 'react-spring'
 import planet from '../../assets/img/Planet.png'
 
-const PlanetHeader = () => {
+const PlanetHeader = ({innerWidth}) => {
   const { top, opacity } = useSpring({
-    top: -300,
+    top: innerWidth > 420 ? -300 : -100,
     opacity: 1,
     from: { 
-      top: -400,
+      top: innerWidth > 420 ? -400 : -200,
       opacity: 0
      },
     config: { duration: 1000 }
@@ -17,9 +17,9 @@ const PlanetHeader = () => {
     <animated.div style={{
       top,
       opacity,
-      left: '-50px',
+      left: innerWidth > 420 ? '-50px' : '-150px' ,
       position: 'absolute',
-      width:'650px',
+      width: innerWidth > 420 ? '650px' : '400px',
       zIndex: 100,
       }}>
       <img 

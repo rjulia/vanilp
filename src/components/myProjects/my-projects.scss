@@ -1,100 +1,175 @@
 @import "../../scss/variables.scss";
 
-.container-projects{
+.container-projects {
   width: 100%;
   position: relative;
+  height: 150vh;
+  @include desktop {
+    height: 100vh;
+
+  }
 }
 
 .title {
-  width: 400px;
   font-weight: 600;
-  font-size: 72px;
-  line-height: 80px;
+  font-size: 48px;
+  line-height: 52px;
   font-family: $outstanding;
   color: $white-smoke;
+  @include desktop {
+    width: 400px;
+    font-size: 72px;
+    line-height: 80px;
+  }
 }
 
 .container-carousel-projects {
   position: relative;
+  padding-top: 120px;
   width: 1440px;
   height: 600px;
-  padding-top: 200px;
   color: #fff;
+  @include desktop {
+    padding-top: 200px;
+  }
 }
 
 .carousel {
+  max-width: 100vw;
+  height: 800px;
   position: relative;
   width: 100%;
-  height: 600px;
+  .carousel__slide {
+    min-height: 650px;
+  }
+  @include desktop {
+    padding: 0;
+  }
 }
 
 .container-item-carousel {
   display: flex;
-  flex-direction: row;
+  flex-direction: column-reverse;
+  max-width: calc(100vw - 40px);
+
+  @include desktop {
+    flex-direction: row;
+    max-width: initial;
+  }
 }
 
 .box-carousel-projects {
-  max-height: 600px;
-}
-.content-item-carousel {
-  width: 635px;
-  & h4 {
-    font-family: $outstanding;
-    font-size: 60px;
-    color: $white-smoke;
+
+  @include desktop {
+    max-height: 600px;
   }
+}
+
+.content-item-carousel {
+  max-width: 100vw;
+  & h4 {
+    padding: 0 20px;
+    font-family: $outstanding;
+    font-size: 36px;
+    color: $white-smoke;
+    margin: 10px 0;
+  }
+  
   & p {
-    font-size: 20px;
-    line-height: 32px;
+    padding: 0 20px;
+
+    font-size: 14px;
+    line-height: 18px;
     font-family: $general;
   }
+  
+  @include desktop {
+    width: 635px;
+    max-width: 635px;
+
+    & h4 {
+      font-size: 60px;
+      margin: 0;
+    }
+  
+    & p {
+      margin: 0;
+      font-size: 20px;
+      line-height: 32px;
+    }
+
+  }
 }
+
 .image-item-carousel {
-  width: 500px;
+
+  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
+
   & img {
-    max-width: 300px;
-    width: 100%;
+    max-height: 280px;
+    width: auto;
+  }
+  @include desktop {
+    width: 500px;
+    & img {
+      max-width: 300px;
+      width: 100%;
+    }
   }
 }
+
 .button-item-carousel {
+  margin-left: 20px;
   cursor: pointer;
-  width: 266px;
-  height: 64px;
-  border-radius: 32px;
+  width: 175px;
+  height: 48px;
+  border-radius: 24px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   border: 1px solid $white-smoke;
+
   & img {
     margin-left: 10px;
   }
 
   & span {
-    font-size: 20px;
-    line-height: 30px;
+    font-size: 14px;
+    line-height: 18px;
     font-weight: 300;
     font-family: $general;
     margin: 0;
-    padding-top: 5px;
     color: $white-smoke;
   }
+  @include desktop {
+    width: 266px;
+    height: 64px;
+    border-radius: 32px;
+    & span {
+      padding-top: 5px;
+      font-size: 20px;
+      line-height: 30px;
+      padding-top: 5px;
+    }
+  }
 }
+
 .carousel__dot-group {
   text-align: center;
 }
 
 .carousel__dot {
   background: none;
-	color: inherit;
-	border: none;
-	padding: 0;
-	font: inherit;
-	cursor: pointer;
-	outline: inherit;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
   background-color: #f1f4fa;
   height: 10px;
   width: 10px;
@@ -102,6 +177,7 @@
   margin: 0 5px;
   border-radius: 5px;
   transition: width 0.2s linear 0s;
+
   &.carousel__dot--selected {
     opacity: 1;
     width: 30px;
@@ -109,4 +185,3 @@
   }
 
 }
-
