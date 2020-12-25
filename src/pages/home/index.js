@@ -105,21 +105,21 @@ const Home = props => {
       </div>
       <div className="secction" ref={ref}>
         <Element name="about" className="element"></Element>
-        <Parallax className="box-about">
+        <Parallax className="box-sections">
           {pageYOffset > innerHeight * 1.5  && <About innerWidth={innerWidth}/>}
         </Parallax>
       </div>
       <div className="secction" ref={ref}>
-        <Parallax className="box-about" styleInner={{width: '100%'}}>
+        <Parallax className="box-sections" styleInner={{width: '100%'}}>
           {pageYOffset > innerHeight * 3  && <BeWhale innerWidth={innerWidth} />}
         </Parallax>
       </div>
-      <div className="secction" ref={ref}>
+      <div className="secction section-project" ref={ref}>
         <Element name="projects" className="element"></Element>
-        <Parallax className="box-about">
+        <Parallax className="box-sections">
           {
             pageYOffset > innerHeight * 4  
-            && <MyProjects projects={projects} />
+            && <MyProjects projects={projects} innerWidth={innerWidth}/>
           }
         </Parallax>
       </div>

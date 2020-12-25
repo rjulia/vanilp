@@ -69,17 +69,32 @@
 }
 
 .content-copyright{
-  position: absolute;
   width: 100%;
   bottom: 40px;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  align-items: center;
+  left: 0;
   & p {
     color: #5a918d;
-    line-height: 32px;
-    font-size: 20px;
+    line-height: 18px;
+    font-size: 14px;
     font-family: $general;
     font-weight: 400;
+    margin: 0;
+    margin-bottom: 10px;
+  }
+  @include desktop {
+    align-items: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
+
+    & p {
+      line-height: 32px;
+      font-size: 20px;
+    }
   }
 }
 

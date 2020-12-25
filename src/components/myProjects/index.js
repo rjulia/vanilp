@@ -8,16 +8,16 @@ import RightArrow from '../../assets/svg/right-arrow.svg'
 import './my-projects.scss'
 
 
-const MyProjects = ({ projects }) => {
+const MyProjects = ({ projects, innerWidth }) => {
   const [allProjects, setAllProjects] = useState([])
   const { left, opacity } = useSpring({
     opacity: 1,
-    left: 0,
+    left: innerWidth > 420 ? 0 : 20,
     from: {
       left: -100,
       opacity: 0
     },
-    config: { duration: 1000 }
+    config: { duration: innerWidth > 420 ? 1000 : 500 }
   })
 
   useEffect(() => {
@@ -74,6 +74,7 @@ const MyProjects = ({ projects }) => {
           naturalSlideHeight={600}
           totalSlides={3}
           className={"carousel"}
+          infinite={true}
         >
           <Slider
             className="box-carousel-projects"

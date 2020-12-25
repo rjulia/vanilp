@@ -8,7 +8,7 @@ const Footer = ({ innerWidth }) => {
 
     <div className="container-fluid-footer">
       <div className="continer-footer">
-        <Parallax y={innerWidth > 420 ? ['-100px', '200px'] : ['-100px', '0px']}>
+        <Parallax y={innerWidth > 420 ? ['-100px', '200px'] : ['-100px', '100px']}>
           <div className='box-title-footer'>
             <h3 className="title-footer">
               Get in touch
