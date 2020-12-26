@@ -3,7 +3,6 @@ import React, { useRef, useState, useEffect } from 'react'
 import { Element} from 'react-scroll'
 import { Parallax } from 'react-scroll-parallax';
 import {getProjects} from '../../api'
-import Linkedin from '../../assets/svg/Linkedin.svg'
 import './home.scss'
 
 import { 
@@ -17,7 +16,8 @@ import {
   BeWhale,
   MyProjects,
   IconMenu,
-  MenuOverhead
+  MenuOverhead,
+  IconSocialMedia
 } from "../../components";
 
 const Home = props => {
@@ -77,19 +77,7 @@ const Home = props => {
         isOpenMenu={isOpenMenu}
         isAtHome
       />
-      <Parallax styleInner={{
-          position: 'absolute',
-          height: 'calc(100vh * 2)',
-          top: 'calc(100vh - 350px)',
-          zIndex: 2,
-          left: innerWidth > 420 ? '50px' : '20px'
-        }}
-        y={['-420px', '300px']} 
-        tagOuter="div">
-        <a href="https://hk.linkedin.com/in/vani-ip" target="_blank">
-          <img src={Linkedin} alt="linkeding logo"/>
-        </a>
-      </Parallax>
+      <IconSocialMedia innerWidth={innerWidth} />
       <div className="secction container">
         <PlanetHeader innerWidth={innerWidth} />
         <Menu/>

@@ -11,6 +11,8 @@ import IconMenu from './icon-menu'
 import MenuOverhead from './menu-overhead'
 import ScrollToTop from './scroll-to-top'
 import Carousel from './carousel'
+import IconSocialMedia from './icon-social-media'
+import IconGoBack from './icon-go-back'
 
 
 export {
@@ -26,5 +28,7 @@ export {
   IconMenu,
   MenuOverhead,
   ScrollToTop,
-  Carousel
+  Carousel,
+  IconSocialMedia,
+  IconGoBack
 }

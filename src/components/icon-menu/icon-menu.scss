@@ -1,18 +1,24 @@
 @import '../../scss/variables.scss';
 
 .container-icon-menu{
-  position: fixed;
+  position: relative;
   display: flex;
   justify-content: flex-end;
-  width: 100%;
-  top: 60px;
-  right: 16px;
+  width: 60px;
   &.is-menu-open {
     z-index: -1000;  
   }
   &.is-menu-close {
     z-index: 1000; 
     transition: z-index 0s ease 600ms;
+  }
+  &.is-at-home {
+    top: 60px;
+    right: 16px;
+    position: fixed;
+    width: 100%;
+    padding: 0;
+
   }
   @include desktop {
     top: 60px;

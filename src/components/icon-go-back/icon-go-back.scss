@@ -1,0 +1,9 @@
+@import '../../scss/variables.scss';
+
+.box-icon-go-back {
+  transform: rotate(-180deg);
+  cursor: pointer;
+  & svg {
+    color: $marine_dark;
+  }
+}

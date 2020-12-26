@@ -6,7 +6,7 @@ import {
   useParams
 } from "react-router-dom"
 import { getProject } from '../../api';
-import {IconMenu, MenuOverhead} from '../../components'
+import {IconMenu, MenuOverhead, IconGoBack} from '../../components'
 
 const Project = (props) => {
   let params = useParams();
@@ -60,15 +60,13 @@ const Project = (props) => {
 
   return (
     <div ref={ref} className="container-fluid-project">
-      <IconMenu 
-        offset={pageYOffset} 
-        onOpenMenu={onOpenMenu} 
-        isOpenMenu={isOpenMenu}
-      />
-      <div>
-        <div>
-          <img src={''} alt=""/>
-        </div>
+      <div className="menu-container">
+        <IconGoBack />
+        <IconMenu 
+          offset={pageYOffset} 
+          onOpenMenu={onOpenMenu} 
+          isOpenMenu={isOpenMenu}
+        />
       </div>
       <div className="container-project">
         <div className="box-head">
@@ -77,13 +75,13 @@ const Project = (props) => {
             <p>{_.get(project, 'description')}</p>
           </div>
           <div className="content-image">
-          <Parallax y={innerWidth > 375 ? ['-400px', '200px'] : [0,0]}>
-            <img 
-              src={_.get(project, 'picture.url')}
-              alt={_.get(project, 'picture.title')}
-            />
-           </Parallax>
-          </div>
+            <Parallax className="image-box-project" y={innerWidth > 375 ? ['-400px', '200px'] : [0,0]}>
+              <img 
+                src={_.get(project, 'picture.url')}
+                alt={_.get(project, 'picture.title')}
+              />
+            </Parallax>
+            </div>
         </div>
         {
           project.personaText && (

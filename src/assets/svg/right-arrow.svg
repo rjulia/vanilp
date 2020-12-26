@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="20px" height="18px" viewBox="0 0 20 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>Right Arrow</title>
     <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Buttons/Primary-Button" transform="translate(-216.000000, -23.000000)" fill="#F1F4FA" fill-rule="nonzero">
+        <g id="Buttons/Primary-Button" transform="translate(-216.000000, -23.000000)" fill="currentColor" fill-rule="nonzero">
             <g id="Group" transform="translate(216.000000, 22.000000)">
                 <g id="right-arrow" transform="translate(0.000000, 1.666667)">
                     <path d="M12.24125,0.23 C11.9083333,-0.0870833333 11.3804167,-0.0745833333 11.0633333,0.25875 C10.7458333,0.592083333 10.7591667,1.11958333 11.0920833,1.43708333 L17.4845833,7.5 L0.833333333,7.5 C0.373333333,7.5 0,7.87333333 0,8.33333333 C0,8.79333333 0.373333333,9.16666667 0.833333333,9.16666667 L17.4579167,9.16666667 L11.0920833,15.23 C10.75875,15.5475 10.7458333,16.075 11.0633333,16.4083333 C11.2270833,16.58 11.4466667,16.6666667 11.6666667,16.6666667 C11.8733333,16.6666667 12.08,16.5904167 12.24125,16.4366667 L19.5116667,9.51166667 C19.8266667,9.19708333 20,8.77875 20,8.33333333 C20,7.88791667 19.8266667,7.46958333 19.4970833,7.14083333 L12.24125,0.23 Z" id="Path"></path>

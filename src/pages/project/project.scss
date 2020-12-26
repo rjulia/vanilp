@@ -3,12 +3,18 @@
 .container-fluid-project {
   width: 100vw;
   background-color: #F1F4FA;
-  padding-top: 65px;
+  padding-top: 50px;
 
   @include desktop {
     padding-top: 165px;
 
   }
+}
+.menu-container {
+  width: calc(100vw - 40px);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
 }
 
 .container-project {
@@ -42,16 +48,20 @@
 
   p {
     color: $text;
-    font-size: 20px;
-    line-height: 32px;
+    font-size: 14px;
+    line-height: 18px;
     font-family: $general;
   }
 
   .content-image {
-    padding-top: 36px;
-
+    padding-top: 80px;
+  
+    width: 100%;
+    display: flex;
+    justify-content: center;
     img {
-      width: 100%;
+      max-height: 300px;
+      width: auto;
     }
   }
 
@@ -69,9 +79,16 @@
       font-size: 72px;
       line-height: 80px;
     }
+    p {
+      font-size: 20px;
+      line-height: 32px;
+    }
 
     .content-image {
       padding-top: 0;
+      img {
+        width: 100%;
+      }
     }
   }
 

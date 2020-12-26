@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import Menu from '../../assets/svg/menu-icon.svg'
-import {ReactComponent as ReactLogo} from '../../assets/svg/menu-icon.svg'
+import classNames from 'classnames';
+import {ReactComponent as MenuIcon} from '../../assets/svg/menu-icon.svg'
 
 import { useSpring, animated } from 'react-spring'
 import './icon-menu.scss'
@@ -21,18 +21,20 @@ const IconMenu = ({offset, onOpenMenu, isOpenMenu, isAtHome}) => {
       duration: 0,
     }}
   ))
+  const iconMenuClass = classNames({
+    'container-icon-menu': true,
+    'is-menu-open': isOpenMenu,
+    'is-menu-close': !isOpenMenu,
+    'is-at-home': isAtHome
+  });
 
   set({opacity: position >= initialPosition ? 1 : 0})
   return (
     <animated.div
       style={{opacity: opacity && opacity.getValue()}} 
-      className={
-        isOpenMenu 
-          ? 'container-icon-menu is-menu-open'
-          : 'container-icon-menu is-menu-close'
-      }>
+      className={iconMenuClass}>
       <div onClick={onOpenMenu} className={isAtHome ? 'box-icon-menu dark': 'box-icon-menu'}>
-        <ReactLogo/>
+        <MenuIcon/>
       </div>
     </animated.div>
   )
