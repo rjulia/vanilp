@@ -5,7 +5,7 @@ import './nomach.scss'
 const NoMatch = () => {
   return (
     <div className='container-nomatch'>
-     <Carousel/>
+     
     </div>
   )
 }

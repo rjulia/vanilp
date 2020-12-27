@@ -16,11 +16,11 @@ export default class CenterMode extends Component {
       className: "center",
       centerMode: true,
       infinite: true,
-      centerPadding: "8px 20px 5px",
+      centerPadding: "10px 20px 10px",
       slidesToShow: 3,
       speed: 500,
       swipeToSlide: true,
-      
+      arrows: false
     };
     return (
       <div className="box-carousel">

@@ -6,7 +6,7 @@ import {
   useParams
 } from "react-router-dom"
 import { getProject } from '../../api';
-import {IconMenu, MenuOverhead, IconGoBack} from '../../components'
+import {IconMenu, MenuOverhead, IconGoBack, Carousel} from '../../components'
 
 const Project = (props) => {
   let params = useParams();
@@ -87,13 +87,13 @@ const Project = (props) => {
           project.personaText && (
             <div className="box-persona">
               <div className="content-image">
-              <Parallax y={innerWidth > 375 ? ['300px', '-500px'] : [0,0] }>
+              <Parallax y={innerWidth > 420 ? ['300px', '-500px'] : [0,0] }>
                 <img 
                   src={_.get(project, 'personaImagesCollection.items[0].url')}
                   alt={_.get(project, 'personaImagesCollection.items[0].title')}
                 />
               </Parallax>
-              <Parallax y={innerWidth > 375 ? ['0px', '-1200px'] : [0,0] }>
+              <Parallax y={innerWidth > 420 ? [ '-400px', '-600px'] : [0,0] }>
                 <img
                   className="second-image" 
                   src={_.get(project, 'personaImagesCollection.items[1].url')}
@@ -117,7 +117,7 @@ const Project = (props) => {
                   <p>{_.get(project, 'personaText')}</p>
                 </div>
                 <div className="content-image">
-                <Parallax x={innerWidth > 375 ? ['200px', '0px'] : [0,0] }>
+                <Parallax x={innerWidth > 420 ? ['200px', '0px'] : [0,0] }>
                   <img 
                     src={_.get(project, 'competitiveImage.url')}
                     alt={_.get(project, 'competitiveImage.title')}
@@ -150,14 +150,15 @@ const Project = (props) => {
             <div className="box-ui">
               <div>
                 <div className="content-sections">
-                  <h1>Wireframes</h1>
+                  <h1>UI Designs</h1>
                   <p>{_.get(project, 'uiText')}</p>
                 </div>
                 <div className="content-image">
-                  <img 
+                  {/* <img 
                     src={_.get(project, 'uiImagesCollection.items[0].url')}
                     alt={_.get(project, 'uiImagesCollection.items[0].title')}
-                  />
+                  /> */}
+                  <Carousel/>
                 </div>
               </div>
             </div>

@@ -1,5 +1,5 @@
 .box-carousel {
-  max-width: 600px;
+  max-width: 670px;
   display: block;
   position: relative;
 }
@@ -14,18 +14,19 @@
   }
 }
 .slick-slider  {
-  
+  display: flex;
+  justify-content: center;
   .slick-list {
     padding-top: 35px !important;
   }
   .slick-slide  > div {
-    padding: 0 5px;
+    padding: 0 10px;
   }
 }
 .slick-slide.slick-active {
   .image-carousel {
     img {
-      box-shadow: 0 0 5px 0 #ccc;
+      // box-shadow: 0 0 5px 0 #ccc;
     }
   }
 }

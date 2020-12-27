@@ -107,7 +107,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
+  
   & img {
     max-height: 280px;
     width: auto;
@@ -115,6 +115,7 @@
   @include desktop {
     width: 500px;
     & img {
+      max-height: initial;
       max-width: 300px;
       width: 100%;
     }
@@ -133,8 +134,9 @@
   align-items: center;
   border: 1px solid $white-smoke;
 
-  & img {
+  & svg {
     margin-left: 10px;
+    color: $white-smoke;
   }
 
   & span {
@@ -149,6 +151,7 @@
     width: 266px;
     height: 64px;
     border-radius: 32px;
+    margin-top: 20px;
     & span {
       padding-top: 5px;
       font-size: 20px;

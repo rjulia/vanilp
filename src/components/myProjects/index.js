@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 import { useSpring, animated } from 'react-spring'
 import { CarouselProvider, Slider, Slide, DotGroup } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
-import RightArrow from '../../assets/svg/right-arrow.svg'
+import {ReactComponent as RightArrow} from '../../assets/svg/right-arrow.svg'
+
 import './my-projects.scss'
 
 
@@ -43,7 +44,7 @@ const MyProjects = ({ projects, innerWidth }) => {
             }} >
             <div className="button-item-carousel">
               <span>Discover the project</span>
-              <img src={RightArrow} alt="arrow"></img>
+              <RightArrow />
             </div>
           </Link>
 
