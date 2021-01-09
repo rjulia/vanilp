@@ -23,7 +23,10 @@
   @include desktop {
     top: 60px;
     right: 60px;
-
+    &.is-at-home {
+      top: 60px;
+      right: 60px; 
+    }
   }
 }
 

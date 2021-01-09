@@ -1,11 +1,12 @@
 @import '../../scss/variables.scss';
 .container-menu {
   display: none;
+  position: relative;
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
   margin-top: 60px;
-  min-height: 30;
+  min-height: 30px;
   @include desktop {
     display: block;
   }

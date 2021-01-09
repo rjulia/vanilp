@@ -17,7 +17,8 @@ import {
   MyProjects,
   IconMenu,
   MenuOverhead,
-  IconSocialMedia
+  IconSocialMedia,
+  Bubbles
 } from "../../components";
 
 const Home = props => {
@@ -89,6 +90,12 @@ const Home = props => {
         </Parallax>
         <Parallax className="box-whale" y={[-10, 30]} tagOuter="div">
           <Whale innerWidth={innerWidth}/>
+        </Parallax>
+        <Parallax 
+          y={[0, 200]} 
+          className="box-bubbles"
+          >
+          <Bubbles/>
         </Parallax>
       </div>
       <div className="secction" ref={ref}>

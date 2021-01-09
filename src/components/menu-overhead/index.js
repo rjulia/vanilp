@@ -1,6 +1,6 @@
 import React from 'react'
 import './menu-overhead.scss'
-import Close from '../../assets/svg/close.svg'
+import {ReactComponent as Close} from'../../assets/svg/close.svg'
 import { Link } from 'react-scroll'
 
 const MemuOverhead = ({onOpenMenu, isOpenMenu}) => {
@@ -11,7 +11,7 @@ const MemuOverhead = ({onOpenMenu, isOpenMenu}) => {
         onClick={onOpenMenu}
         className="close-icon"
         >
-        <img src={Close} alt='close'/>
+        <Close />
       </div>
         <ul className={
           isOpenMenu

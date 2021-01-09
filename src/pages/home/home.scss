@@ -54,6 +54,13 @@
   position: relative;
   display: block;
 }
+.box-bubbles {
+  position: absolute;
+  position: absolute;
+  top: calc(100vh - 150px);
+  left: 0;
+  width: 100vw;
+}
 
 .main-title {
   position: absolute;

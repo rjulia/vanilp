@@ -13,6 +13,7 @@ import ScrollToTop from './scroll-to-top'
 import Carousel from './carousel'
 import IconSocialMedia from './icon-social-media'
 import IconGoBack from './icon-go-back'
+import Bubbles from './bubbles'
 
 
 export {
@@ -30,5 +31,6 @@ export {
   ScrollToTop,
   Carousel,
   IconSocialMedia,
-  IconGoBack
+  IconGoBack,
+  Bubbles
 }
