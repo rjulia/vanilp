@@ -10,11 +10,13 @@
 
   }
 }
+
 .menu-container {
   width: calc(100vw - 40px);
   display: flex;
   justify-content: space-between;
   padding: 0 20px;
+
   @include desktop {
     padding-top: 0;
     min-height: 100px;
@@ -54,17 +56,18 @@
 
   p {
     color: $text;
-    font-size: 14px;
+    font-size: 15px;
     line-height: 18px;
     font-family: $general;
   }
 
   .content-image {
     padding-top: 80px;
-  
+
     width: 100%;
     display: flex;
     justify-content: center;
+
     img {
       max-height: 300px;
       width: auto;
@@ -85,6 +88,7 @@
       font-size: 72px;
       line-height: 80px;
     }
+
     p {
       font-size: 20px;
       line-height: 32px;
@@ -92,6 +96,7 @@
 
     .content-image {
       padding-top: 0;
+
       img {
         width: 100%;
         max-height: initial;
@@ -111,6 +116,7 @@
   .content-image {
     position: relative;
     margin-top: 60px;
+
     & img {
       width: 100%;
     }
@@ -132,16 +138,16 @@
       margin: 0;
       top: 0;
       color: $text;
-      font-size: 36px;
-      line-height: 40px;
+      font-size: 28px;
+      line-height: 28px;
       font-weight: 600;
       font-family: $outstanding;
     }
 
     p {
       color: $text;
-      font-size: 20px;
-      line-height: 32px;
+      font-size: 15px;
+      line-height: 18px;
       font-family: $general;
     }
   }
@@ -153,15 +159,24 @@
     .content-sections {
       padding: 0 30px;
       flex: 1 1 50%;
+
       h1 {
         position: relative;
-        margin: 0;
+        font-size: 36px;
+        line-height: 40px;
+
+      }
+  
+      p {
+        font-size: 20px;
+        line-height: 32px;
       }
     }
 
     .content-image {
       position: relative;
       margin-top: 0px;
+
       .second-image {
         position: absolute;
         z-index: 10;
@@ -173,15 +188,14 @@
 }
 
 .box-competitive {
-  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-
+  margin-top: 60px;
   & div {
     position: relative;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 
     .content-image {
       position: relative;
@@ -194,7 +208,7 @@
 
     .content-sections {
       flex: 1 1 35%;
-      padding: 0 30px;
+      padding: 0;
       display: flex;
       flex-direction: column;
       justify-self: start;
@@ -202,19 +216,42 @@
       h1 {
         margin: 0;
         color: $text;
-        font-size: 36px;
-        line-height: 40px;
+        font-size: 24px;
+        line-height: 28px;
         font-weight: 600;
         font-family: $outstanding;
       }
 
       p {
         color: $text;
-        font-size: 20px;
-        line-height: 32px;
+        font-size: 15px;
+        line-height: 18px;
         font-family: $general;
       }
     }
+  }
+
+  @include desktop {
+    min-height: 100vh;
+
+    & div {
+      flex-direction: row;
+
+      .content-sections {
+        flex: 1 1 35%;
+        padding: 0 30px;
+        h1 {
+          font-size: 36px;
+          line-height: 40px;
+        }
+  
+        p {
+          font-size: 20px;
+          line-height: 32px;
+        }
+      }
+    }
+
   }
 }
 
@@ -224,42 +261,63 @@
   justify-content: center;
   align-items: center;
 
-  & > div {
+  &>div {
     position: relative;
     display: flex;
-    flex-direction: row;
+    flex-direction: column-reverse;
 
     .content-image {
       position: relative;
-      width: 745px;
-      flex: 1 1 65%;
-
       img {
         width: 100%;
       }
     }
 
     .content-sections {
-      flex: 1 1 35%;
-      padding: 0 30px;
+
       display: flex;
       flex-direction: column;
       justify-self: start;
-
+      margin-top: 60px;
       h1 {
         margin: 0;
         color: $text;
-        font-size: 36px;
-        line-height: 40px;
+        font-size: 24px;
+        line-height: 28px;
         font-weight: 600;
         font-family: $outstanding;
       }
 
       p {
         color: $text;
-        font-size: 20px;
-        line-height: 32px;
+        font-size: 15px;
+        line-height: 18px;
         font-family: $general;
+      }
+    }
+  }
+
+  @include desktop {
+    &>div {
+      flex-direction: row;
+      .content-image {
+        position: relative;
+        width: 745px;
+        flex: 1 1 65%;
+
+      }
+      .content-sections {
+        flex: 1 1 35%;
+        padding: 0 30px;
+        h1 {
+          font-size: 36px;
+          line-height: 40px;
+        }
+  
+        p {
+          font-size: 20px;
+          line-height: 32px;
+        }
       }
     }
   }
@@ -271,11 +329,9 @@
   justify-content: center;
   align-items: center;
 
-  & > div {
+  &>div {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    width: calc(100vw - 30px);
 
     .content-image {
       position: relative;
@@ -285,36 +341,49 @@
     }
 
     .content-sections {
-      max-width: 745px;
-      padding: 0 30px;
-      display: flex;
-      flex-direction: column;
-      justify-self: start;
-
+      width: calc(100vw - 30px);
       h1 {
         margin: 0;
         color: $text;
-        font-size: 36px;
-        line-height: 40px;
+        font-size: 24px;
+        line-height: 28px;
         font-weight: 600;
         font-family: $outstanding;
       }
 
       p {
         color: $text;
-        font-size: 20px;
-        line-height: 32px;
+        font-size: 15px;
+        line-height: 18px;
         font-family: $general;
       }
     }
   }
+
   @include desktop {
-    & > div {
-      // position: relative;
-      // display: flex;
-      // flex-direction: column;
-      // align-items: center;
+    &>div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .content-sections {
+        width: 100vh;
+        padding: 0 30px;
+        max-width: 745px;
+        display: flex;
+        flex-direction: column;
+        justify-self: start;
   
+        h1 {
+          font-size: 36px;
+          line-height: 40px;
+        }
+  
+        p {
+          font-size: 20px;
+          line-height: 32px;
+        }
+      }
       .content-image {
         width: 1440px;
 
