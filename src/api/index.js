@@ -35,6 +35,14 @@ export const getProject = async (id) => {
         query:`
           query ProjectById {
             project(id:"${id}") {
+              sys {
+                id
+                spaceId
+                environmentId
+                publishedAt
+                firstPublishedAt
+                publishedVersion
+              }
               id
               url
               slug

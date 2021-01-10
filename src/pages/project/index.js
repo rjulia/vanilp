@@ -1,29 +1,25 @@
 import _ from 'lodash'
-import React, { useEffect, useState, useRef} from 'react'
+import React, { useEffect, useState, useRef } from 'react'
+import { useParams, Link } from "react-router-dom"
 import { Parallax } from 'react-scroll-parallax';
+import { useProjects } from '../../hook'
+import { ReactComponent as RightArrow } from '../../assets/svg/right-arrow.svg'
+import classNames from 'classnames';
 import './project.scss'
-import {
-  useParams
-} from "react-router-dom"
-import { getProject } from '../../api';
-import {IconMenu, MenuOverhead, IconGoBack, Carousel} from '../../components'
+
+import { IconMenu, MenuOverhead, IconGoBack, Carousel } from '../../components'
 
 const Project = (props) => {
-  let params = useParams();
+  const { apiGetProject, project, nextProject, totalProjects, currentId } = useProjects()
   const ref = useRef();
-  const { location } = props 
-  const [project, setProject] = useState({})
+  const { location } = props
+
   const [pageYOffset, setPageYOffset] = useState(0)
   const [innerHeight, setInnerHeight] = useState(0)
   const [innerWidth, setInnerWidth] = useState(0)
   const [isOpenMenu, setIsOpenMenu] = useState(false)
 
-  const apiGetProject = () => {
-    getProject(_.get(location, 'state.id')).then((response) => {
-      console.log(response)
-      setProject(_.get(response, 'data.project')) 
-    })
-  }
+
   const handleScroll = (event) => {
     const posY = ref.current.getBoundingClientRect().top;
     setInnerHeight(window.innerHeight)
@@ -40,8 +36,8 @@ const Project = (props) => {
   }, []);
 
   useEffect(() => {
-    apiGetProject()
-  }, [])
+    apiGetProject(location)
+  }, [location])
 
   const onOpenMenu = () => {
     setIsOpenMenu(!isOpenMenu)
@@ -57,14 +53,18 @@ const Project = (props) => {
       document.body.style.height = "auto"
     }
   }
+  const buttonClasses = classNames({
+    'button-next': true,
+    'is-disable': 1 === currentId,
+  });
 
   return (
     <div ref={ref} className="container-fluid-project">
       <div className="menu-container">
         <IconGoBack />
-        <IconMenu 
-          offset={pageYOffset} 
-          onOpenMenu={onOpenMenu} 
+        <IconMenu
+          offset={pageYOffset}
+          onOpenMenu={onOpenMenu}
           isOpenMenu={isOpenMenu}
         />
       </div>
@@ -75,31 +75,31 @@ const Project = (props) => {
             <p>{_.get(project, 'description')}</p>
           </div>
           <div className="content-image">
-            <Parallax className="image-box-project" y={innerWidth > 375 ? ['-400px', '200px'] : [0,0]}>
-              <img 
+            <Parallax className="image-box-project" y={innerWidth > 375 ? ['200px', '-400px'] : [0, 0]}>
+              <img
                 src={_.get(project, 'picture.url')}
                 alt={_.get(project, 'picture.title')}
               />
             </Parallax>
-            </div>
+          </div>
         </div>
         {
           project.personaText && (
             <div className="box-persona">
               <div className="content-image">
-              <Parallax y={innerWidth > 420 ? ['300px', '-500px'] : [0,0] }>
-                <img 
-                  src={_.get(project, 'personaImagesCollection.items[0].url')}
-                  alt={_.get(project, 'personaImagesCollection.items[0].title')}
-                />
-              </Parallax>
-              <Parallax y={innerWidth > 420 ? [ '-400px', '-600px'] : [0,0] }>
-                <img
-                  className="second-image" 
-                  src={_.get(project, 'personaImagesCollection.items[1].url')}
-                  alt={_.get(project, 'personaImagesCollection.items[1].title')}
-                />
-              </Parallax>
+                <Parallax y={innerWidth > 420 ? ['300px', '-500px'] : [0, 0]}>
+                  <img
+                    src={_.get(project, 'personaImagesCollection.items[0].url')}
+                    alt={_.get(project, 'personaImagesCollection.items[0].title')}
+                  />
+                </Parallax>
+                <Parallax y={innerWidth > 420 ? ['-400px', '-600px'] : [0, 0]}>
+                  <img
+                    className="second-image"
+                    src={_.get(project, 'personaImagesCollection.items[1].url')}
+                    alt={_.get(project, 'personaImagesCollection.items[1].title')}
+                  />
+                </Parallax>
               </div>
               <div className="content-sections">
                 <h1>Persona</h1>
@@ -117,12 +117,12 @@ const Project = (props) => {
                   <p>{_.get(project, 'personaText')}</p>
                 </div>
                 <div className="content-image">
-                <Parallax x={innerWidth > 420 ? ['200px', '0px'] : [0,0] }>
-                  <img 
-                    src={_.get(project, 'competitiveImage.url')}
-                    alt={_.get(project, 'competitiveImage.title')}
-                  />
-                </Parallax>
+                  <Parallax x={innerWidth > 420 ? ['200px', '0px'] : [0, 0]}>
+                    <img
+                      src={_.get(project, 'competitiveImage.url')}
+                      alt={_.get(project, 'competitiveImage.title')}
+                    />
+                  </Parallax>
                 </div>
               </div>
             </div>
@@ -133,7 +133,7 @@ const Project = (props) => {
             <div className="box-wireframes">
               <div>
                 <div className="content-image">
-                  <img 
+                  <img
                     src={_.get(project, 'wireframesImagesCollection.items[0].url')}
                     alt={_.get(project, 'wireframesImagesCollection.items[0].title')}
                   />
@@ -158,7 +158,7 @@ const Project = (props) => {
                     src={_.get(project, 'uiImagesCollection.items[0].url')}
                     alt={_.get(project, 'uiImagesCollection.items[0].title')}
                   /> */}
-                  <Carousel/>
+                  <Carousel />
                 </div>
               </div>
             </div>
@@ -174,7 +174,7 @@ const Project = (props) => {
                 </div>
                 <div className="content-image">
                   <video width="800" controls>
-                    <source src={_.get(project, 'conceptVideoVideo.url')} type="video/mp4"/>
+                    <source src={_.get(project, 'conceptVideoVideo.url')} type="video/mp4" />
                     Your browser does not support HTML video.
                   </video>
                 </div>
@@ -182,14 +182,31 @@ const Project = (props) => {
             </div>
           )
         }
+        <div className="container-next">
+          <Link
+            style={{ textDecoration: 'none' }}
+            to={{
+              pathname: `/project/${_.get(nextProject, 'slug', '')}`,
+              state: {
+                id: _.get(nextProject, 'sys.id', '')
+              }
+            }} >
+            <div
+              className={buttonClasses}
+            >
+              <p> Next project</p>
+              <RightArrow />
+            </div>
+          </Link>
+        </div>
       </div>
       <div className="footer-project">
         <div className="content-project-copyright">
-            <p>VANIIIP © 2020</p>
-            <p>Designed by Vani Ip 	Developed by Ramon Julia</p>
+          <p>VANIIIP © 2020</p>
+          <p>Designed by Vani Ip 	Developed by Ramon Julia</p>
         </div>
       </div>
-      <MenuOverhead onOpenMenu={onOpenMenu} isOpenMenu={isOpenMenu}/>
+      <MenuOverhead onOpenMenu={onOpenMenu} isOpenMenu={isOpenMenu} />
 
     </div>
   )

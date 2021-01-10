@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
+import { ProjectsProvider } from './hook'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ParallaxProvider } from 'react-scroll-parallax';
@@ -10,7 +11,9 @@ import "slick-carousel/slick/slick-theme.css";
 ReactDOM.render(
   <React.StrictMode>
     <ParallaxProvider>
-      <App />
+      <ProjectsProvider>
+        <App />
+      </ProjectsProvider>
     </ParallaxProvider>
   </React.StrictMode>,
   document.getElementById('root')

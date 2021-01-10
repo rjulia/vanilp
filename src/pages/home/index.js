@@ -2,7 +2,7 @@ import _ from 'lodash'
 import React, { useRef, useState, useEffect } from 'react'
 import { Element} from 'react-scroll'
 import { Parallax } from 'react-scroll-parallax';
-import {getProjects} from '../../api'
+import { useProjects } from '../../hook'
 import './home.scss'
 
 import { 
@@ -22,14 +22,9 @@ import {
 } from "../../components";
 
 const Home = props => {
-
-  const [projects, setProjects] = useState([]);
+  const {projects } = useProjects()
   const [isOpenMenu, setIsOpenMenu] = useState(false)
-  useEffect(() => {
-    getProjects().then((response) => {
-      setProjects(_.get(response, 'data.projectCollection.items')) 
-    })
-  }, []);
+  
   
   const ref = useRef();
   const [pageYOffset, setPageYOffset] = useState(0)

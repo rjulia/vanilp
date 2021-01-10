@@ -1,6 +1,6 @@
 export const queryProjects = `
 {
-  projectCollection {
+  projectCollection(order: sys_publishedAt_ASC) {
     total
     limit
     items {

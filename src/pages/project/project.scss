@@ -2,7 +2,7 @@
 
 .container-fluid-project {
   width: 100vw;
-  background-color: #F1F4FA;
+  background-color: $white-smoke;
   padding-top: 50px;
 
   @include desktop {
@@ -98,8 +98,7 @@
       padding-top: 0;
 
       img {
-        width: 100%;
-        max-height: initial;
+        max-height: 700px;
       }
     }
   }
@@ -450,13 +449,54 @@
     width: 100%;
     margin: 0 auto;
     display: flex;
-    color: #F1F4FA;
+    color: $white-smoke;
     justify-content: space-between;
     align-items: center;
     height: 80px;
 
     & p {
       margin: 0;
+    }
+  }
+}
+.container-next {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 80px;
+  .button-next {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px $marine_dark;
+    height: 64px;
+    padding: 0 20px;
+    text-decoration: none;
+    background:transparent;
+    border-radius: 32px;
+    cursor: pointer;
+    text-align: center;
+    transition: background 250ms ease-in-out, 
+    transform 150ms ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    & p {
+      margin: 0;
+      color: $marine_dark;
+      font-family: $general;
+      font-size: 20px;
+      line-height: 20px;
+      padding-top: 5px;
+      margin-right: 10px;
+    }
+    &.is-disable {
+      cursor: not-allowed;
+      color: $green_footer;
+      border: solid 1px $green_footer;
+      & p {
+        color: $green_footer;
+      }
+
     }
   }
 }
