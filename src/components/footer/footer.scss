@@ -1,29 +1,42 @@
 @import '../../scss/variables.scss';
 
-.container-fluid-footer{
+.container-fluid-footer {
   width: 100%;
   height: 100vh;
   background-color: $green_footer;
   display: flex;
 }
+
 .continer-footer {
   display: block;
   position: relative;
   width: 1440px;
   margin: 0 auto;
   padding: 20px;
+
   @include desktop {
     padding: 40px;
   }
 }
+
+.container-left {
+  position: absolute;
+  z-index: 1;
+  @include desktop {
+    position: relative;
+  }
+}
+
 .box-title-footer {
   margin-top: 60px;
   max-width: 420px;
+
   @include desktop {
     margin-top: 120px;
-    
+
   }
 }
+
 .title-footer {
   font-weight: 600;
   font-family: $outstanding;
@@ -32,24 +45,29 @@
   line-height: 52px;
   margin-top: 0;
   margin-bottom: 20px;
+
   @include desktop {
     font-size: 72px;
     line-height: 80px;
   }
 }
+
 .content-footer {
   color: $text_dark;
   font-size: 14px;
   line-height: 18px;
   font-family: $general;
   font-weight: 400;
+
   @include desktop {
     font-size: 20px;
     line-height: 32px;
   }
 }
+
 .content-contact {
   margin-top: 50px;
+
   & p {
     color: $text_dark;
     font-size: 14px;
@@ -57,8 +75,10 @@
     font-family: $general;
     font-weight: 400;
   }
+
   @include desktop {
     margin-top: 0;
+
     p {
       margin-top: 0;
       font-size: 20px;
@@ -68,7 +88,7 @@
   }
 }
 
-.content-copyright{
+.content-copyright {
   width: 100%;
   bottom: 40px;
   display: flex;
@@ -77,6 +97,7 @@
   position: absolute;
   align-items: center;
   left: 0;
+
   & p {
     color: #5a918d;
     line-height: 18px;
@@ -86,6 +107,7 @@
     margin: 0;
     margin-bottom: 10px;
   }
+
   @include desktop {
     align-items: flex-start;
     flex-direction: row;
@@ -100,9 +122,11 @@
 
 .moon-footer {
   position: absolute;
+  z-index: 0;
   right: -60%;
   width: 400px;
   top: 10%;
+
   @include desktop {
     right: -20%;
     width: 660px;

@@ -10,7 +10,7 @@
   border-radius: 50%;
   z-index: -500;
   &.is-open-conteiner {
-    z-index: 6;
+    z-index: 40;
   }
   &.is-close-conteiner {
     transition: z-index 0s ease 600ms;
@@ -89,8 +89,11 @@
 }
 .close-icon {
   position: absolute;
-  right: 89px;
+  right: 0px;
   top: 0;
   cursor: pointer;
   color: aliceblue;
+  @include desktop {
+    right: 89px;
+  }
 }

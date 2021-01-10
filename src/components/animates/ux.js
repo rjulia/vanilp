@@ -1,11 +1,12 @@
 import React, {useState} from 'react'
 import {useSpring, animated} from 'react-spring'
 import expertises from '../../const/expertises'
+import smallExpertises from '../../const/small-expertises'
 
 const AnimFeTurbulence = animated('feTurbulence')
 const AnimFeDisplacementMap = animated('feDisplacementMap')
 
-const Ux = () => {
+const Ux = ({innerWidth}) => {
   const [open, toggle] = useState(false)
   const { freq, scale, transform, opacity } = useSpring({
     reverse: open,
@@ -30,7 +31,7 @@ const Ux = () => {
     </defs>
     <g filter="url(#water)">
       <animated.path
-        d={expertises()}
+        d={innerWidth > 420 ? expertises() : smallExpertises()}
         fill="#F1F4FA"
       />
     </g>

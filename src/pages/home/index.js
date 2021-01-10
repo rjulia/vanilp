@@ -81,13 +81,13 @@ const Home = props => {
          <Vani innerWidth={innerWidth}/>
         </Parallax>
         <Parallax className="main-title" y={[0, 5]} x={[0, 20]} tagOuter="figure">
-          <Ux/>
+          <Ux innerWidth={innerWidth}/>
         </Parallax>
         <Parallax className="box-whale" y={[-10, 30]} tagOuter="div">
           <Whale innerWidth={innerWidth}/>
         </Parallax>
         <Parallax 
-          y={[0, 200]} 
+          y={innerWidth > 420 ? [0, 200] : [40, 120]} 
           className="box-bubbles"
           >
           <Bubbles/>

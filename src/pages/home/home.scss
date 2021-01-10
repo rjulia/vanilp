@@ -65,14 +65,31 @@
 .main-title {
   position: absolute;
   width: auto;
-  left: calc(17% - 60px);
-  top: 52%;
+  left: -73px;
+  top: 248px;
   z-index: 20;
   margin: 0;
-
+  & svg {
+    height: 147px;
+  }
   &.first {
-    top: 42%;
-    left: calc(17% + 55px);
+    left: 60px;
+    top: 200px;
+    & svg {
+      height: initial;
+    }
+  }
+  @include desktop {
+    top: 52%;
+    left: calc(17% - 60px);
+    & svg {
+      height: initial;
+    }
+    &.first {
+      top: 42%;
+      left: calc(17% + 55px);
+    }
+
   }
 }
 

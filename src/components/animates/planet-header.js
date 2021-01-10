@@ -20,7 +20,7 @@ const PlanetHeader = ({innerWidth}) => {
       left: innerWidth > 420 ? '-50px' : '-150px' ,
       position: 'absolute',
       width: innerWidth > 420 ? '650px' : '400px',
-      zIndex: 100,
+      zIndex: innerWidth > 420 ? 100 : 0,
       }}>
       <img 
         src={planet}

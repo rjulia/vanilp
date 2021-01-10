@@ -1,11 +1,13 @@
 import React, {useState} from 'react'
 import {useSpring, animated} from 'react-spring'
 import name from '../../const/name'
+import smallName from '../../const/small-name'
 
 const AnimFeTurbulence = animated('feTurbulence')
 const AnimFeDisplacementMap = animated('feDisplacementMap')
 
 const Vani = ({innerWidth}) => {
+  console.log('innerWidth', innerWidth)
   const [open, toggle] = useState(false)
   const { freq, scale, transform, opacity } = useSpring({
     reverse: open,
@@ -30,7 +32,7 @@ const Vani = ({innerWidth}) => {
     </defs>
     <g filter="url(#water)">
       <animated.path
-        d={name()}
+        d={innerWidth > 420 ? name() : smallName()}
         fill="#F1F4FA"
       />
     </g>
