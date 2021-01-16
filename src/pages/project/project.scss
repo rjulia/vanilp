@@ -11,6 +11,18 @@
   }
 }
 
+.oval-violet {
+  position: absolute;
+  top: 35%;
+  right: 0;
+  transform: translateY(-50%) rotate(8deg);
+  background: rgba(145, 240, 220, 1);
+  background: radial-gradient(ellipse at center, rgba(145, 240, 220,1) 0%, rgba(145, 240, 220,0) 70%); 
+  height: 600px;
+  width: 1200px;
+  border-radius: 50%;
+}
+
 .menu-container {
   width: calc(100vw - 40px);
   display: flex;

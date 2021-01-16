@@ -60,6 +60,7 @@ const Project = (props) => {
 
   return (
     <div ref={ref} className="container-fluid-project">
+      <div className="oval-violet"/>
       <div className="menu-container">
         <IconGoBack />
         <IconMenu

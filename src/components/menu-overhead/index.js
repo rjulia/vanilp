@@ -23,7 +23,7 @@ const MemuOverhead = ({onOpenMenu, isOpenMenu}) => {
             to="about" 
             spy={true} 
             smooth={true} 
-            offset={50} 
+            offset={0} 
             duration={2000} 
             >
             <li>Home</li>
@@ -34,7 +34,7 @@ const MemuOverhead = ({onOpenMenu, isOpenMenu}) => {
             to="about" 
             spy={true} 
             smooth={true} 
-            offset={50} 
+            offset={0} 
             duration={2000} 
             >
             <li>About Me</li>
@@ -45,7 +45,7 @@ const MemuOverhead = ({onOpenMenu, isOpenMenu}) => {
             to="projects" 
             spy={true} 
             smooth={true} 
-            offset={50} 
+            offset={0} 
             duration={2000} 
             >
             <li>Projects</li>
@@ -56,7 +56,7 @@ const MemuOverhead = ({onOpenMenu, isOpenMenu}) => {
             to="contact" 
             spy={true} 
             smooth={true} 
-            offset={50} 
+            offset={0} 
             duration={2000} 
             >
             <li>Contact</li>

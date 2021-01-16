@@ -2,6 +2,9 @@ import React from 'react'
 import './footer.scss'
 import planet from '../../assets/img/Planet.png'
 import { Parallax } from 'react-scroll-parallax';
+import {ReactComponent as Phone} from '../../assets/svg/Phone.svg'
+import {ReactComponent as Email} from '../../assets/svg/Email.svg'
+
 
 const Footer = ({ innerWidth }) => {
   return (
@@ -22,8 +25,8 @@ const Footer = ({ innerWidth }) => {
             </p>
           </div>
           <div className="content-contact">
-            <p><span>icon</span><span>winglamip@gmail.com</span></p>
-            <p><span>icon</span><span>+852 9792 3721</span></p>
+            <p><span><Email/></span><span>winglamip@gmail.com</span></p>
+            <p><span><Phone/></span><span>+852 9792 3721</span></p>
           </div>
         </Parallax>
         <div className="content-copyright">

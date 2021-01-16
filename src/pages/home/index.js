@@ -92,7 +92,6 @@ const Home = props => {
       </div>
       <div className="secction" ref={ref}>
         <div className="oval-violet"/>
-
         <Element name="about" className="element"></Element>
         <Parallax className="box-sections">
           {pageYOffset > innerHeight * 1.5  && <About innerWidth={innerWidth}/>}
@@ -104,6 +103,7 @@ const Home = props => {
         </Parallax>
       </div>
       <div className="secction section-project" ref={ref}>
+        <div className="oval-blue"/>
         <Element name="projects" className="element"></Element>
         <Parallax className="box-sections">
           {

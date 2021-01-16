@@ -10,7 +10,7 @@
 .continer-footer {
   display: block;
   position: relative;
-  width: 1440px;
+  width: 1140px;
   margin: 0 auto;
   padding: 20px;
 
@@ -69,11 +69,17 @@
   margin-top: 50px;
 
   & p {
+    display: flex;
+    align-items: center;
     color: $text_dark;
     font-size: 14px;
     line-height: 18px;
     font-family: $general;
     font-weight: 400;
+    & span:first-child {
+      padding-top: 5px;
+      margin-right: 8px;
+    }
   }
 
   @include desktop {

@@ -12,7 +12,7 @@ const Menu = () => {
             to="about" 
             spy={true} 
             smooth={true} 
-            offset={50} 
+            offset={0} 
             duration={2000} 
             >
             <li>About Me</li>
@@ -22,7 +22,7 @@ const Menu = () => {
             to="projects" 
             spy={true} 
             smooth={true} 
-            offset={50} 
+            offset={0} 
             duration={2000} 
             >
             <li>Projects</li>
@@ -32,7 +32,7 @@ const Menu = () => {
             to="contact" 
             spy={true} 
             smooth={true} 
-            offset={50} 
+            offset={0} 
             duration={2000} 
             >
             <li>Contact</li>

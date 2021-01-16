@@ -102,7 +102,17 @@
   height: 600px;
   width: 1200px;
   border-radius: 50%;
-  // z-index: 0;
+}
+.oval-blue {
+  position: absolute;
+  top: 25%;
+  left: -400px;
+  transform: translateY(-50%);
+  background: rgb(43,15,54);
+  background: radial-gradient(ellipse at center, rgba(8,23,98,1) 0%, rgba(6,7,38,1) 70%); 
+  height: 600px;
+  width: 1200px;
+  border-radius: 50%;
 }
 
 .box-sections {
@@ -112,7 +122,7 @@
   margin: 0 auto;
   @include desktop {
     padding: 0;
-    width: 1024px;
+    width: 1140px;
 
   }
 }
