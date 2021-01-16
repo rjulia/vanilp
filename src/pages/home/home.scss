@@ -92,6 +92,18 @@
 
   }
 }
+.oval-violet {
+  position: absolute;
+  top: 75%;
+  right: -400px;
+  transform: translateY(-50%);
+  background: rgb(43,15,54);
+  background: radial-gradient(circle, rgba(43,15,54,1) 0%, rgba(6,7,38,1) 46%); 
+  height: 600px;
+  width: 1200px;
+  border-radius: 50%;
+  // z-index: 0;
+}
 
 .box-sections {
   display: flex;
@@ -100,7 +112,7 @@
   margin: 0 auto;
   @include desktop {
     padding: 0;
-    width: 1440px;
+    width: 1024px;
 
   }
 }

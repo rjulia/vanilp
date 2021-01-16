@@ -86,14 +86,13 @@ const Home = props => {
         <Parallax className="box-whale" y={[-10, 30]} tagOuter="div">
           <Whale innerWidth={innerWidth}/>
         </Parallax>
-        <Parallax 
-          y={innerWidth > 420 ? [0, 200] : [40, 120]} 
-          className="box-bubbles"
-          >
-          <Bubbles/>
+        <Parallax className="box-bubbles" y={innerWidth > 420 ? [0, 200] : [40, 120]}>
+          <Bubbles innerHeight={innerHeight} pageYOffset={pageYOffset}/>
         </Parallax>
       </div>
       <div className="secction" ref={ref}>
+        <div className="oval-violet"/>
+
         <Element name="about" className="element"></Element>
         <Parallax className="box-sections">
           {pageYOffset > innerHeight * 1.5  && <About innerWidth={innerWidth}/>}

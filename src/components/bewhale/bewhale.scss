@@ -12,15 +12,16 @@
 .background-be-whale {
   z-index: -1;
   top: 50%;
-  left: 50%;
+  left: 32%;
   border-radius: 50%;
   position: absolute;
   width: 1000px;
-  height: 250px;
-  transform: translate(-50%, -50%);
-  opacity: 0.2;
+  height: 450px;
+  transform: translate(-50%, -50%) rotate(5deg);
+  opacity: 0.4;
   filter: blur(50px);
-  background: radial-gradient(circle, rgba(145,240,220,1) 0%, rgba(6,7,38,1) 75%);
+  background: radial-gradient(at right, rgb(177, 255, 238) 0%, rgba(6,7,38,1) 75%);
+  // background: radial-gradient(at right 60%,red,yellow,green);
   @include desktop {
     top: 35%;
   }
@@ -57,7 +58,7 @@
   right: -35%;
   width: 1000px;
   top: 28%;
-  opacity: 0.1;
+  opacity: 0.05;
   & img {
     width: 100%;
   }

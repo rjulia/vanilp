@@ -48,6 +48,7 @@
   position: absolute;
   height: 10px;
   background-color: #91f0dc;
+  box-shadow: 0 5px 20px 0 rgba(145, 240, 220, 0.8);
   &::before {
     content: '';
     position: absolute;

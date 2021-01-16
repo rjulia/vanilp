@@ -20,7 +20,7 @@ const Whale = ({innerWidth}) => {
       right: innerWidth > 420 ? '150px':'-50px',
       position: 'absolute',
       width: innerWidth > 420 ? '1000px':'500px',
-      zIndex: 2,
+      zIndex: 0,
       }}>
       <img 
         src={whale}

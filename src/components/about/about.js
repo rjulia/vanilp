@@ -36,8 +36,6 @@ const About = ({innerWidth}) => {
           <img src={profilepic} alt="vani ip"/>
         </div>
       </div>
-
-
     </div>
   )
 }

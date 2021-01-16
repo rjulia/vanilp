@@ -7,7 +7,6 @@ const AnimFeTurbulence = animated('feTurbulence')
 const AnimFeDisplacementMap = animated('feDisplacementMap')
 
 const Vani = ({innerWidth}) => {
-  console.log('innerWidth', innerWidth)
   const [open, toggle] = useState(false)
   const { freq, scale, transform, opacity } = useSpring({
     reverse: open,

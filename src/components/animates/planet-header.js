@@ -4,7 +4,7 @@ import planet from '../../assets/img/Planet.png'
 
 const PlanetHeader = ({innerWidth}) => {
   const { top, opacity } = useSpring({
-    top: innerWidth > 420 ? -300 : -100,
+    top: innerWidth > 420 ? -350 : -100,
     opacity: 1,
     from: { 
       top: innerWidth > 420 ? -400 : -200,
