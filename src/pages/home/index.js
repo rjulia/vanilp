@@ -103,7 +103,7 @@ const Home = props => {
         </Parallax>
       </div>
       <div className="secction section-project" ref={ref}>
-        <div className="oval-blue"/>
+        {/* <div className="oval-blue"/> */}
         <Element name="projects" className="element"></Element>
         <Parallax className="box-sections">
           {
