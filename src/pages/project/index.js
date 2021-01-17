@@ -88,19 +88,19 @@ const Project = (props) => {
           project.personaText && (
             <div className="box-persona">
               <div className="content-image">
-                <Parallax y={innerWidth > 420 ? ['300px', '-500px'] : [0, 0]}>
+                <Parallax y={innerWidth > 420 ? ['800px', '0px'] : [0, 0]}>
                   <img
                     src={_.get(project, 'personaImagesCollection.items[0].url')}
                     alt={_.get(project, 'personaImagesCollection.items[0].title')}
                   />
                 </Parallax>
-                <Parallax y={innerWidth > 420 ? ['-400px', '-600px'] : [0, 0]}>
+                {/* <Parallax y={innerWidth > 420 ? ['-400px', '-600px'] : [0, 0]}>
                   <img
                     className="second-image"
                     src={_.get(project, 'personaImagesCollection.items[1].url')}
                     alt={_.get(project, 'personaImagesCollection.items[1].title')}
                   />
-                </Parallax>
+                </Parallax> */}
               </div>
               <div className="content-sections">
                 <h1>Persona</h1>
