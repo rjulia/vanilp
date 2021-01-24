@@ -45,7 +45,7 @@
   @include desktop {
     padding: 0;
     width: 1440px;
-    padding-top: 108px;
+    padding-top: 100px;
   }
 }
 
@@ -53,8 +53,6 @@
   position: relative;
   display: flex;
   flex-direction: column-reverse;
-
-
   h1 {
     top: 0;
     position: absolute;
@@ -88,7 +86,7 @@
 
   @include desktop {
     flex-direction: row;
-    min-height: 100vh;
+    min-height: calc(100vh - 200px);
 
     .content-head {
       max-width: 648px;
@@ -165,6 +163,8 @@
 
   @include desktop {
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
     margin-top: 0;
 
     .content-sections {
@@ -192,7 +192,7 @@
         position: absolute;
         z-index: 10;
         left: 50%;
-        top: 300px;
+        top: -60px;
       }
     }
   }

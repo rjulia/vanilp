@@ -12,7 +12,7 @@ const NoMatch = () => {
     /* Optional options */
     threshold: 0,
     delay: 0,
-    // triggerOnce: true,
+    triggerOnce: true,
   });
 
   const { ref:refCot, inView:inViewOne, entry: entryTwo } = useInView({
