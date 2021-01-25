@@ -9,12 +9,34 @@
   opacity: 0.95;
   border-radius: 50%;
   z-index: -500;
+  
+  .close-icon {
+    position: relative;
+    display: flex;
+    opacity: 0;
+    justify-content: flex-end;
+    width: 100%;
+    cursor: pointer;
+    color: aliceblue;
+    @include desktop {
+      right: 89px;
+      margin-bottom: 60px;
+    }
+  }
   &.is-open-conteiner {
     z-index: 40;
+    .close-icon {
+      opacity: 1;
+      transition: opacity 0.8s cubic-bezier(0.86, 0, 0.07, 1) 0s;
+    }
   }
   &.is-close-conteiner {
     transition: z-index 0s ease 600ms;
     z-index: -500;
+    .close-icon {
+      opacity: 0;
+      transition: opacity 0.8s cubic-bezier(0.86, 0, 0.07, 1) 0s;
+    }
   }
 }
 .badground-menu {
@@ -47,13 +69,15 @@
   width: calc(100vw - 32px);
   height: 100vh;
   margin-top: 60px;
-  margin: 60px 16px 0;
-  padding-top: 60px;
+  margin: 40px 16px 0;
+  padding-top: 35px;
   & .menu {
     list-style: none;
     position: absolute;
     padding-left: 0px;
-
+    & a {
+      text-decoration: none;
+    }
     &.is-open {
       left: 10px;
       transition: left 0.8s cubic-bezier(0.86, 0, 0.07, 1) 0s;
@@ -77,7 +101,7 @@
     }
   }
   @include desktop {
-    margin: 60px 60px 0;
+    margin: 20px 60px 0;
     & .menu {
       padding-left: 40px;
     }
@@ -85,15 +109,5 @@
       font-size: 72px;
       line-height: 80px;
     }
-  }
-}
-.close-icon {
-  position: absolute;
-  right: 0px;
-  top: 0;
-  cursor: pointer;
-  color: aliceblue;
-  @include desktop {
-    right: 89px;
   }
 }

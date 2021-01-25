@@ -1,5 +1,8 @@
 import _ from 'lodash'
 import React, { useRef, useState, useEffect } from 'react'
+import {
+  useLocation
+} from "react-router-dom";
 import { Element} from 'react-scroll'
 import { Parallax } from 'react-scroll-parallax';
 import { useProjects } from '../../hook'
@@ -22,11 +25,11 @@ import {
 } from "../../components";
 
 const Home = props => {
+  const location = useLocation()
+  console.log('location', location)
   const {projects } = useProjects()
-  const [isOpenMenu, setIsOpenMenu] = useState(false)
-  
-  
   const ref = useRef();
+  const [isOpenMenu, setIsOpenMenu] = useState(false)
   const [pageYOffset, setPageYOffset] = useState(0)
   const [innerHeight, setInnerHeight] = useState(0)
   const [innerWidth, setInnerWidth] = useState(0)
@@ -46,6 +49,17 @@ const Home = props => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+  console.log('useEffect',location, location.hash.slice(1))
+  useEffect(()=> {
+    if (location.hash) {
+          let elem = document.getElementById(location.hash.slice(1))
+          if (elem) {
+              elem.scrollIntoView({behavior: "smooth"})
+          }
+      } else {
+        window.scrollTo({top:0,left:0, behavior: "smooth"})
+      }
+  }, [location,])
 
   if (!projects) {
     return "Loading...";
@@ -67,6 +81,7 @@ const Home = props => {
   }
   return (
     <div ref={ref} style={{position: 'relative', backgroundColor: '#060726'}}>
+      <Element name="home" className="element" id="home"></Element>
       <IconMenu 
         offset={pageYOffset} 
         onOpenMenu={onOpenMenu} 
@@ -92,7 +107,7 @@ const Home = props => {
       </div>
       <div className="secction" ref={ref}>
         <div className="oval-violet"/>
-        <Element name="about" className="element"></Element>
+        <Element name="about" className="element" id="about"></Element>
         <Parallax className="box-sections">
           {pageYOffset > innerHeight * 1.5  && <About innerWidth={innerWidth}/>}
         </Parallax>
@@ -104,7 +119,7 @@ const Home = props => {
       </div>
       <div className="secction section-project" ref={ref}>
         {/* <div className="oval-blue"/> */}
-        <Element name="projects" className="element"></Element>
+        <Element name="projects" className="element" id="projects" ></Element>
         <Parallax className="box-sections">
           {
             pageYOffset > innerHeight * 4  
@@ -112,9 +127,9 @@ const Home = props => {
           }
         </Parallax>
       </div>
-      <Element name="contact" className="element"></Element>
+      <Element name="contact" className="element" id="contact"></Element>
       <Footer innerWidth={innerWidth} />
-      <MenuOverhead onOpenMenu={onOpenMenu} isOpenMenu={isOpenMenu}/>
+      <MenuOverhead onOpenMenu={onOpenMenu} isOpenMenu={isOpenMenu} location={location}/>
     </div>
   )
 }

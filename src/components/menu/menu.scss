@@ -23,6 +23,7 @@
   flex-direction: row;
   list-style: none;
   & li {
+    cursor: pointer;
     margin-right: 60px;
     font-family: $general;
     font-weight: 300;

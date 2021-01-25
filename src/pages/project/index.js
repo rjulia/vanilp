@@ -15,7 +15,7 @@ const Project = (props) => {
   const { apiGetProject, project, nextProject, totalProjects, currentId } = useProjects()
   const ref = useRef();
   const { location } = props
-
+  console.log(location)
   const [pageYOffset, setPageYOffset] = useState(0)
   const [innerHeight, setInnerHeight] = useState(0)
   const [innerWidth, setInnerWidth] = useState(0)
@@ -106,6 +106,19 @@ const Project = (props) => {
     config: { mass: 5, tension: 300, friction: 80 }
   })
 
+  const { ref:refFourthSection, inView: inViewFourthSection } = useInView({
+    /* Optional options */
+    threshold: 0.2,
+    delay: 0,
+    triggerOnce: true,
+  });
+
+  const springFourthSection = useSpring({
+    opacity: inViewFourthSection ? 1 : 0,
+    transform: `translateY(${inViewFourthSection ? 0 : 400}px`,
+    config: { mass: 5, tension: 300, friction: 80 }
+  })
+
 
 
   return (
@@ -166,18 +179,19 @@ const Project = (props) => {
         {
           project.competitiveText && (
             <div className="box-competitive">
-              <div>
+              <div ref={refThirdSection}>
                 <div className="content-sections">
                   <h1>Competitive Analysis</h1>
                   <p>{_.get(project, 'personaText')}</p>
                 </div>
                 <div className="content-image">
-                  <Parallax x={innerWidth > 420 ? ['200px', '0px'] : [0, 0]}>
+                  <animated.div 
+                    style={{ ...springThirdSection, display: 'block', margin: '0px auto' }}>
                     <img
                       src={_.get(project, 'competitiveImage.url')}
                       alt={_.get(project, 'competitiveImage.title')}
                     />
-                  </Parallax>
+                  </animated.div >
                 </div>
               </div>
             </div>
@@ -187,9 +201,9 @@ const Project = (props) => {
           project.wireframesText && (
             <div className="box-wireframes">
               <div>
-                <div className="content-image" ref={refThirdSection}>
+                <div className="content-image" ref={refFourthSection}>
                 <animated.div 
-                style={{ ...springThirdSection, display: 'block', margin: '0px auto' }}>
+                style={{ ...springFourthSection, display: 'block', margin: '0px auto' }}>
                   <img
                     src={_.get(project, 'wireframesImagesCollection.items[0].url')}
                     alt={_.get(project, 'wireframesImagesCollection.items[0].title')}
@@ -260,8 +274,8 @@ const Project = (props) => {
       </div>
       <div className="footer-project">
         <div className="content-project-copyright">
-          <p>VANIIIP © 2020</p>
-          <p>Designed by Vani Ip 	Developed by Ramon Julia</p>
+          <p>VANIIIP © {new Date().getFullYear()}</p>
+          <p>Designed by Vani Ip | Developed by Ramon Julia</p>
         </div>
       </div>
       <MenuOverhead onOpenMenu={onOpenMenu} isOpenMenu={isOpenMenu} />
