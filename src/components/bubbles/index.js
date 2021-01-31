@@ -23,7 +23,6 @@ const Buubles = () => {
     const posY = refBubbles.current.getBoundingClientRect().top;
     setInitialPosYElement(posY)
   }, [])
-  console.log(posYElement  / initialPosYElement, posYElement, initialPosYElement)
   return (
     <div
     ref={refBubbles}

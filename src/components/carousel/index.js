@@ -5,8 +5,6 @@ import frame from '../../assets/img/frame.png'
 
 
 function CenterMode({projectImages}) {
-  console.log(projectImages
-    )
   const settings = {
     dots: true,
     dotsClass: "slick-dots slick-dots-slider",

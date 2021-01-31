@@ -12,7 +12,6 @@ const MemuOverhead = ({onOpenMenu, isOpenMenu}) => {
   useEffect(() => {
     setIsAtHome(location.pathname === "/")
   }, [location])
-  console.log(isAtHome, location.pathname)
   return (
     <div className={isOpenMenu ? 'container-menu-overhead is-open-conteiner ': 'container-menu-overhead is-close-conteiner '}>
       <div className="box-menu-overhead">

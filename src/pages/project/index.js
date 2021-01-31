@@ -15,7 +15,6 @@ const Project = (props) => {
   const { apiGetProject, project, nextProject, totalProjects, currentId } = useProjects()
   const ref = useRef();
   const { location } = props
-  console.log(location)
   const [pageYOffset, setPageYOffset] = useState(0)
   const [innerHeight, setInnerHeight] = useState(0)
   const [innerWidth, setInnerWidth] = useState(0)
@@ -58,7 +57,7 @@ const Project = (props) => {
 
   const buttonClasses = classNames({
     'button-next': true,
-    'is-disable': 1 === currentId,
+    'is-disable': totalProjects === currentId,
   });
 
   const { ref:refFirstSections, inView: inViewFirstSections } = useInView({
@@ -255,21 +254,31 @@ const Project = (props) => {
           )
         }
         <div className="container-next">
-          <Link
-            style={{ textDecoration: 'none' }}
-            to={{
-              pathname: `/project/${_.get(nextProject, 'slug', '')}`,
-              state: {
-                id: _.get(nextProject, 'sys.id', '')
-              }
-            }} >
-            <div
-              className={buttonClasses}
-            >
-              <p> Next project</p>
-              <RightArrow />
-            </div>
-          </Link>
+          {
+            totalProjects === currentId ? (
+              <div className={buttonClasses}>
+                <p> Next project</p>
+                <RightArrow />
+              </div>
+            ):(
+            <Link
+              style={{ textDecoration: 'none' }}
+              to={{
+                pathname: `/project/${_.get(nextProject, 'slug', '')}`,
+                state: {
+                  id: _.get(nextProject, 'sys.id', '')
+                }
+              }} >
+              <div
+                className={buttonClasses}
+              >
+                <p> Next project</p>
+                <RightArrow />
+              </div>
+            </Link>
+
+            )
+          }
         </div>
       </div>
       <div className="footer-project">

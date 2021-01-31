@@ -26,7 +26,6 @@ import {
 
 const Home = props => {
   const location = useLocation()
-  console.log('location', location)
   const {projects } = useProjects()
   const ref = useRef();
   const [isOpenMenu, setIsOpenMenu] = useState(false)
@@ -49,7 +48,6 @@ const Home = props => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-  console.log('useEffect',location, location.hash.slice(1))
   useEffect(()=> {
     if (location.hash) {
           let elem = document.getElementById(location.hash.slice(1))

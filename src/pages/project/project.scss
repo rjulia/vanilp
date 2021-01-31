@@ -187,7 +187,7 @@
     .content-image {
       position: relative;
       margin-top: 0px;
-
+      width: 50%;
       .second-image {
         position: absolute;
         z-index: 10;
@@ -503,6 +503,7 @@
     }
     &.is-disable {
       cursor: not-allowed;
+      pointer-events: none;
       color: $green_footer;
       border: solid 1px $green_footer;
       & p {
@@ -511,4 +512,7 @@
 
     }
   }
+}
+a[disabled] {
+  pointer-events: none;
 }
