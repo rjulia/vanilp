@@ -15,7 +15,8 @@ function CenterMode({projectImages}) {
     slidesToShow: 3,
     speed: 500,
     swipeToSlide: true,
-    arrows: false
+    arrows: false,
+    edgeFriction: 0.5
   };
   return (
     <div className="box-carousel">

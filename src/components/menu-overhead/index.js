@@ -29,17 +29,12 @@ const MemuOverhead = ({onOpenMenu, isOpenMenu}) => {
             isAtHome
             ? (
               <>
-                <LinkScroll
+                <Link
                   onClick={onOpenMenu}
-                  activeClass="active" 
-                  to="home" 
-                  spy={true} 
-                  smooth={true} 
-                  offset={0} 
-                  duration={2000} 
+                  to="/" 
                   >
                   <li>Home</li>
-                </LinkScroll>
+                </Link>
                 <LinkScroll 
                 onClick={onOpenMenu}
                 activeClass="active" 
@@ -81,7 +76,7 @@ const MemuOverhead = ({onOpenMenu, isOpenMenu}) => {
               <>
                <Link
                   onClick={onOpenMenu}
-                  to="/#home" 
+                  to="/" 
                   >
                   <li>Home</li>
                 </Link>
