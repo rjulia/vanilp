@@ -8,7 +8,7 @@ const IconGoBack = () => {
     <Link 
       className="box-icon-go-back" 
       type="button" 
-      to='/'>
+      to="/#projects">
       <RightArrow />
     </Link>
   )

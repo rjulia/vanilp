@@ -1,8 +1,10 @@
 
-
+.container-tools  {
+ margin-top:40px;
+}
 .container-tool {
   width: calc(100% - 10px);
-  margin-bottom: 25px;
+  margin-bottom: 35px;
   & p {
     font-weight: 600;
     margin: 0;

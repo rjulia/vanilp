@@ -4,9 +4,10 @@
   width: 100vw;
   background-color: $white-smoke;
   padding-top: 50px;
-
+  overflow-x: hidden;
   @include desktop {
     padding-top: 0;
+    width: 100%;
 
   }
 }
@@ -14,7 +15,7 @@
 .oval-blueLight {
   position: absolute;
   top: 35%;
-  right: 0;
+  right: 100px;
   transform: translateY(-50%) rotate(8deg);
   background: rgba(145, 240, 220, 1);
   background: radial-gradient(ellipse at center, rgba(145, 240, 220,1) 0%, rgba(145, 240, 220,0) 70%); 
@@ -44,7 +45,7 @@
 
   @include desktop {
     padding: 0;
-    width: 1440px;
+    width: 1140px;
     padding-top: 100px;
   }
 }
@@ -86,7 +87,7 @@
 
   @include desktop {
     flex-direction: row;
-    min-height: calc(100vh - 200px);
+    padding-bottom: 120px;
 
     .content-head {
       max-width: 648px;
@@ -119,7 +120,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  height: 100vh;
   margin-top: 60px;
 
   .content-image {
@@ -165,12 +166,14 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-top: 0;
-
+    margin-top: 120px;
+    padding-bottom: 120px;
+    height: auto;
     .content-sections {
       padding: 0 30px;
       flex: 1 1 50%;
-
+      height: 800px;
+      // padding-top: 50px;
       h1 {
         position: relative;
         font-size: 36px;
@@ -185,6 +188,7 @@
     }
 
     .content-image {
+      height: 700px;
       position: relative;
       margin-top: 0px;
       width: 50%;
@@ -243,8 +247,9 @@
   }
 
   @include desktop {
-    min-height: 100vh;
-
+    height: auto;
+    margin-top: 120px;
+    padding-bottom: 120px;
     & div {
       flex-direction: row;
 
@@ -267,7 +272,7 @@
 }
 
 .box-wireframes {
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -309,6 +314,9 @@
   }
 
   @include desktop {
+    height: auto;
+    margin-top: 120px;
+    padding-bottom: 120px;
     &>div {
       flex-direction: row;
       .content-image {
@@ -335,7 +343,7 @@
 }
 
 .box-ui {
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -378,7 +386,7 @@
       align-items: center;
 
       .content-sections {
-        width: 100vh;
+        width: 100vw;
         padding: 0 30px;
         max-width: 745px;
         display: flex;
@@ -396,7 +404,7 @@
         }
       }
       .content-image {
-        width: 1440px;
+        width: 1140px;
 
       }
     }
@@ -404,7 +412,7 @@
 }
 
 .box-concept-video {
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -446,6 +454,11 @@
         font-family: $general;
       }
     }
+  }
+  @include desktop { 
+    height: auto;
+    margin-top: 120px;
+    padding-bottom: 120px;
   }
 }
 

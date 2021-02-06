@@ -8,8 +8,7 @@ import { useProjects } from '../../hook'
 import { ReactComponent as RightArrow } from '../../assets/svg/right-arrow.svg'
 import classNames from 'classnames';
 import './project.scss'
-
-import { IconMenu, MenuOverhead, IconGoBack, Carousel } from '../../components'
+import { IconMenu, MenuOverhead, IconGoBack, Carousel, Helmet } from '../../components'
 
 const Project = (props) => {
   const { apiGetProject, project, nextProject, totalProjects, currentId } = useProjects()
@@ -88,7 +87,7 @@ const Project = (props) => {
 
   const springSecondSectionTwo = useSpring({
     opacity: inViewSecondSection ? 1 : 0,
-    transform: `translateY(${inViewSecondSection ? 0 : 800}px`,
+    transform: `translateY(${inViewSecondSection ? 30 : 800}px`,
     config: { mass: 10, tension: 500, friction: 120 }
   })
 
@@ -122,6 +121,7 @@ const Project = (props) => {
 
   return (
     <div ref={ref} className="container-fluid-project">
+      <Helmet title={`${_.get(project, 'title')} | VANI IP`} />
       <div className="oval-blueLight"/>
       <div className="menu-container">
         <IconGoBack />
@@ -152,7 +152,11 @@ const Project = (props) => {
             <div className="box-persona">
               <div className="content-image" ref={refSecondSection}>
               <animated.div 
-                style={{ ...springSecondSection, display: 'block', margin: '0px auto' }}>
+                style={{ 
+                  ...springSecondSection, 
+                  display: 'block',
+                  margin: '0px auto',
+                  maxWidth: '700px'}}>
                   <img
                     src={_.get(project, 'personaImagesCollection.items[0].url')}
                     alt={_.get(project, 'personaImagesCollection.items[0].title')}
@@ -160,7 +164,11 @@ const Project = (props) => {
               </animated.div>
       
               <animated.div 
-                style={{ ...springSecondSectionTwo, display: 'block', background: '#f2f', margin: '0px auto' }}>
+                style={{ 
+                  ...springSecondSectionTwo,
+                  display: 'block', 
+                  maxWidth: '700px', 
+                  margin: '0px auto' }}>
                   <img
                     className="second-image"
                     src={_.get(project, 'personaImagesCollection.items[1].url')}
@@ -225,10 +233,6 @@ const Project = (props) => {
                   <p>{_.get(project, 'uiText')}</p>
                 </div>
                 <div className="content-image">
-                  {/* <img 
-                    src={_.get(project, 'uiImagesCollection.items[0].url')}
-                    alt={_.get(project, 'uiImagesCollection.items[0].title')}
-                  /> */}
                   <Carousel projectImages={_.get(project, 'uiImagesCollection')}/>
                 </div>
               </div>

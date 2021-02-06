@@ -74,12 +74,12 @@
   height: 150px;
   position: relative;
   & li {
-    width: 25px;
+    width: 20px;
     margin: 0 2px;
     position: relative;
   }
   & li button {
-    width: 25px;
+    width: 20px;
     padding:0;
     margin: 0 2px;
   }
@@ -87,8 +87,8 @@
     background-color: #000;
     left: 50%;
     transform: translateX(-50%);
-    height: 16px;
-    width: 16px;
+    height: 8px;
+    width: 8px;
     font-size: 15px;
     border-radius: 8px;
     transition: width 0.2s linear 0s;
@@ -96,7 +96,7 @@
     content: '';
   }
   & li.slick-active button:before {
-    width: 30px;
+    width: 20px;
     transition: width 0.2s linear 0s;
   }
 }

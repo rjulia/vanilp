@@ -20,17 +20,35 @@
     width: 400px;
     font-size: 72px;
     line-height: 80px;
+    margin-top: 30px;
   }
 }
 
 .container-carousel-projects {
   position: relative;
   padding-top: 120px;
-  width: 1440px;
+  width: 1140px;
   height: 600px;
   color: #fff;
   @include desktop {
-    padding-top: 200px;
+    padding-top: 300px;
+  }
+}
+.background-projects {
+  z-index: -1;
+  top: 20%;
+  left: 22%;
+  border-radius: 50%;
+  position: absolute;
+  width: 1200px;
+  height: 550px;
+  transform: translate(-50%, -50%) rotate(5deg);
+  opacity: 0.4;
+  filter: blur(50px);
+  background: radial-gradient(rgb(8, 23, 98) 60%, rgba(6,7,38,1) 95%);
+  // background: radial-gradient(at right 60%,red,yellow,green);
+  @include desktop {
+    top: 35%;
   }
 }
 
@@ -73,6 +91,7 @@
     font-size: 36px;
     color: $white-smoke;
     margin: 10px 0;
+    font-weight: 400;
   }
   
   & p {
@@ -189,8 +208,8 @@
   cursor: pointer;
   outline: inherit;
   background-color: #f1f4fa;
-  height: 10px;
-  width: 10px;
+  height: 8px;
+  width: 8px;
   opacity: 0.6;
   margin: 0 5px;
   border-radius: 5px;
@@ -198,7 +217,7 @@
 
   &.carousel__dot--selected {
     opacity: 1;
-    width: 30px;
+    width: 20px;
     transition: width 0.2s linear 0s;
   }
 

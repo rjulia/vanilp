@@ -69,11 +69,12 @@ const MyProjects = ({ projects, innerWidth }) => {
       }}>
         <p className="title">My Projects</p>
       </animated.div>
+      <div className="background-projects"></div>
       <div className="container-carousel-projects">
         <CarouselProvider
           naturalSlideWidth={600}
           naturalSlideHeight={600}
-          totalSlides={3}
+          totalSlides={allProjects.length}
           className={"carousel"}
           infinite={true}
         >

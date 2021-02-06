@@ -31,7 +31,7 @@ const Footer = ({ innerWidth }) => {
         </Parallax>
         <div className="content-copyright">
             <p>VANIIIP © 2020</p>
-            <p>Designed by Vani Ip 	Developed by Ramon Julia</p>
+            <p>Designed by Vani Ip | Developed by Ramon Julia</p>
         </div>
         <div className="moon-footer">
           <img 

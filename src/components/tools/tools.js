@@ -1,9 +1,10 @@
 import React from 'react'
 import Tool from './tool'
+import './tools.scss'
 
 const Tools = () => {
   return (
-    <div>
+    <div className="container-tools">
       <Tool 
         title='Design tools'
         subtitle='- Sketch, Figma, Adobe Creative Suite, Balsamiq'

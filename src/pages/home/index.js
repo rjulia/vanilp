@@ -21,7 +21,8 @@ import {
   IconMenu,
   MenuOverhead,
   IconSocialMedia,
-  Bubbles
+  Bubbles,
+  Helmet
 } from "../../components";
 
 const Home = props => {
@@ -78,24 +79,35 @@ const Home = props => {
     }
   }
   return (
-    <div ref={ref} style={{position: 'relative', backgroundColor: '#060726'}}>
+    <div 
+      className="container-fluid" 
+      ref={ref} 
+      style={{position: 'relative', backgroundColor: '#060726'}}
+      >
+      <Helmet title="VANI IP | Portfolio" />
       <Element name="home" className="element" id="home"></Element>
+
       <IconMenu 
         offset={pageYOffset} 
         onOpenMenu={onOpenMenu} 
         isOpenMenu={isOpenMenu}
         isAtHome
       />
-      <IconSocialMedia innerWidth={innerWidth} />
+      {
+        pageYOffset > innerHeight * 4 ? '' :<IconSocialMedia innerWidth={innerWidth} />
+      }
+      
       <div className="secction container">
         <PlanetHeader innerWidth={innerWidth} />
         <Menu/>
-        <Parallax className="main-title first" y={[0, 5]} x={[0, -20]} tagOuter="figure">
-         <Vani innerWidth={innerWidth}/>
+        <Parallax className="main-title first" x={[0, -30]} >
+          <div className="box-main-title">
+            <Vani innerWidth={innerWidth}/>
+            <Ux innerWidth={innerWidth}/>
+          </div>
         </Parallax>
-        <Parallax className="main-title" y={[0, 5]} x={[0, 20]} tagOuter="figure">
-          <Ux innerWidth={innerWidth}/>
-        </Parallax>
+        {/* <Parallax className="main-title" y={[0, 5]} x={[0, 20]} tagOuter="figure">
+        </Parallax> */}
         <Parallax className="box-whale" y={[-10, 30]} tagOuter="div">
           <Whale innerWidth={innerWidth}/>
         </Parallax>
