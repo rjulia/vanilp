@@ -30,11 +30,12 @@ export default function MiniCartProvider({ children }) {
   }
   
   useEffect(() => {
+    setLoading(true)
     const getNextProjectId = () => {
       const idx = _.findIndex(projects, {id: currentId + 1})
-      setLoading(true)
       const next = projects[idx]
       setNextProject(next)
+      setLoading(false) 
     }
     getNextProjectId(currentId)
   }, [currentId, projects])
@@ -50,7 +51,6 @@ export default function MiniCartProvider({ children }) {
     })
   }, []);
   
-  console.log(projects)
   const state = {
     projects,
     project,

@@ -507,7 +507,6 @@
     -webkit-appearance: none;
     -moz-appearance: none;
     &:hover{
-
       color: $marine_dark;
       background-color: $marine_dark;;
       background-position: -100% 100%;
@@ -523,6 +522,9 @@
       line-height: 20px;
       padding-top: 5px;
       margin-right: 10px;
+    }
+    & svg {
+      color: $marine_dark;
     }
     &.is-disable {
       cursor: not-allowed;

@@ -1,4 +1,3 @@
-import _ from 'lodash'
 import React, { useRef, useState, useEffect } from 'react'
 import {
   useLocation

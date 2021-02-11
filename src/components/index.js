@@ -11,6 +11,7 @@ import Menu from './menu'
 import MenuOverhead from './menu-overhead'
 import MyProjects from './my-projects'
 import PlanetHeader from './animates/planet-header'
+import Spinner from './spinner'
 import ScrollToTop from './scroll-to-top'
 import Ux from './animates/ux'
 import Vani from './animates/vani'
@@ -32,6 +33,7 @@ export {
   MyProjects,
   PlanetHeader,
   ScrollToTop,
+  Spinner,
   Vani,
   Ux,
   Whale,

@@ -8,10 +8,17 @@ import { useProjects } from '../../hook'
 import { ReactComponent as RightArrow } from '../../assets/svg/right-arrow.svg'
 import classNames from 'classnames';
 import './project.scss'
-import { IconMenu, MenuOverhead, IconGoBack, Carousel, Helmet } from '../../components'
+import { IconMenu, MenuOverhead, IconGoBack, Carousel, Helmet, Spinner } from '../../components'
 
 const Project = (props) => {
-  const { apiGetProject, project, nextProject, totalProjects, currentId } = useProjects()
+  const { 
+    apiGetProject, 
+    project, 
+    nextProject, 
+    totalProjects, 
+    currentId ,
+    loading
+  } = useProjects()
   const ref = useRef();
   const { location } = props
   const [pageYOffset, setPageYOffset] = useState(0)
@@ -117,11 +124,13 @@ const Project = (props) => {
     config: { mass: 5, tension: 300, friction: 80 }
   })
 
-
-
+  
   return (
     <div ref={ref} className="container-fluid-project">
       <Helmet title={`${_.get(project, 'title')} | VANI IP`} />
+     {
+       loading ? <Spinner /> :
+      <>
       <div className="oval-blueLight"/>
       <div className="menu-container">
         <IconGoBack />
@@ -292,6 +301,9 @@ const Project = (props) => {
         </div>
       </div>
       <MenuOverhead onOpenMenu={onOpenMenu} isOpenMenu={isOpenMenu} />
+      </>
+     }
+        
 
     </div>
   )
