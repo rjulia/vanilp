@@ -129,7 +129,7 @@ const Project = (props) => {
     <div ref={ref} className="container-fluid-project">
       <Helmet title={`${_.get(project, 'title')} | VANI IP`} />
      {
-       loading ? <Spinner /> :
+       true ? <Spinner /> :
       <>
       <div className="oval-blueLight"/>
       <div className="menu-container">
