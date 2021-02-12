@@ -53,6 +53,7 @@ export const getProject = async (id) => {
                 fileName
                 url
               }
+              personaTitle
               personaText
               personaImagesCollection{
                 total
@@ -61,11 +62,13 @@ export const getProject = async (id) => {
                   title
                 }
               }
+              competitiveTitle
               competitiveText
               competitiveImage {
                 title
                 url
               }
+              wirefreamesTitle
               wireframesText
               wireframesImagesCollection{
                 total
@@ -74,6 +77,7 @@ export const getProject = async (id) => {
                   title
                 }
               }
+              uiTitle
               uiText
               uiImagesCollection{
                 total
@@ -82,6 +86,7 @@ export const getProject = async (id) => {
                   title
                 }
               }
+              conceptTitle
               conceptVideoText
               conceptVideoVideo{
                 url
@@ -92,6 +97,7 @@ export const getProject = async (id) => {
                 items{
                   url
                   title
+                  description
                 }
               }
             }

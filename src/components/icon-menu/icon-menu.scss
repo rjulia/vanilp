@@ -4,7 +4,9 @@
   position: relative;
   display: flex;
   justify-content: flex-end;
-  width: 60px;
+  right: 0;
+  width: 100%;
+  top: 4px;
   &.is-menu-open {
     z-index: -1000;  
   }
@@ -16,7 +18,6 @@
     top: 60px;
     right: 16px;
     position: fixed;
-    width: 100%;
     padding: 0;
 
   }

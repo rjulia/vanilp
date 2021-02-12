@@ -3,25 +3,33 @@
 .container-fluid-project {
   width: 100vw;
   background-color: $white-smoke;
-  padding-top: 50px;
+  padding-top: 20px;
   overflow-x: hidden;
   @include desktop {
     padding-top: 0;
     width: 100%;
+    padding-top: 50px;
+
 
   }
 }
 
 .oval-blueLight {
   position: absolute;
-  top: 35%;
-  right: 100px;
+  top: 45%;
+  right: -100px;
   transform: translateY(-50%) rotate(8deg);
   background: rgba(145, 240, 220, 1);
   background: radial-gradient(ellipse at center, rgba(145, 240, 220,1) 0%, rgba(145, 240, 220,0) 70%); 
-  height: 600px;
-  width: 1200px;
+  height: 300px;
+  width: 600px;
   border-radius: 50%;
+  @include desktop {
+    top: 35%;
+    right: 100px;
+    height: 600px;
+    width: 1200px;
+  }
 }
 
 .menu-container {
@@ -29,6 +37,7 @@
   display: flex;
   justify-content: space-between;
   padding: 0 20px;
+  position: relative;
 
   @include desktop {
     padding-top: 0;
@@ -42,7 +51,7 @@
   margin: 0 auto;
   width: calc(100vw - 30px);
   padding: 15px;
-
+  padding-top: 50px;
   @include desktop {
     padding: 0;
     width: 1140px;
@@ -531,7 +540,7 @@
       pointer-events: none;
       color: $green_footer;
       border: solid 1px $green_footer;
-      & p {
+      & p, & svg {
         color: $green_footer;
       }
 

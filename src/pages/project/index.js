@@ -1,14 +1,22 @@
 import _ from 'lodash'
 import React, { useEffect, useState, useRef } from 'react'
-import { useParams, Link } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { useInView } from 'react-intersection-observer';
-import { Parallax } from 'react-scroll-parallax';
 import { useSpring, animated } from 'react-spring'
 import { useProjects } from '../../hook'
 import { ReactComponent as RightArrow } from '../../assets/svg/right-arrow.svg'
 import classNames from 'classnames';
 import './project.scss'
-import { IconMenu, MenuOverhead, IconGoBack, Carousel, Helmet, Spinner } from '../../components'
+import { 
+  IconMenu, 
+  MenuOverhead, 
+  IconGoBack, 
+  ImageFrame,
+  Carousel, 
+  Helmet, 
+  Spinner,
+  TitleProjectSection
+} from '../../components'
 
 const Project = (props) => {
   const { 
@@ -123,7 +131,6 @@ const Project = (props) => {
     transform: `translateY(${inViewFourthSection ? 0 : 400}px`,
     config: { mass: 5, tension: 300, friction: 80 }
   })
-
   
   return (
     <div ref={ref} className="container-fluid-project">
@@ -186,7 +193,10 @@ const Project = (props) => {
                 </animated.div>
               </div>
               <div className="content-sections">
-                <h1>Persona</h1>
+                <TitleProjectSection 
+                  original="Persona"
+                  byContent={_.get(project, 'personaTitle')}
+                />
                 <p>{_.get(project, 'personaText')}</p>
               </div>
             </div>
@@ -197,7 +207,10 @@ const Project = (props) => {
             <div className="box-competitive">
               <div ref={refThirdSection}>
                 <div className="content-sections">
-                  <h1>Competitive Analysis</h1>
+                  <TitleProjectSection 
+                    original="Competitive Analysis"
+                    byContent={_.get(project, 'competitiveTitle')}
+                  />
                   <p>{_.get(project, 'personaText')}</p>
                 </div>
                 <div className="content-image">
@@ -227,7 +240,10 @@ const Project = (props) => {
                 </animated.div>
                 </div>
                 <div className="content-sections">
-                  <h1>Wireframes</h1>
+                  <TitleProjectSection 
+                    original="Wireframes"
+                    byContent={_.get(project, 'wirefreamesTitle')}
+                  />
                   <p>{_.get(project, 'wireframesText')}</p>
                 </div>
               </div>
@@ -238,11 +254,21 @@ const Project = (props) => {
             <div className="box-ui">
               <div>
                 <div className="content-sections">
-                  <h1>UI Designs</h1>
+                  <TitleProjectSection 
+                    original="UI Designs"
+                    byContent={_.get(project, 'uiTitle')}
+                  />
                   <p>{_.get(project, 'uiText')}</p>
                 </div>
                 <div className="content-image">
-                  <Carousel projectImages={_.get(project, 'uiImagesCollection')}/>
+                  {
+                    _.get(project, 'uiImagesCollection.total') > 1 
+                    
+                    ? <Carousel projectImages={_.get(project, 'uiImagesCollection')}/>
+                    : <img src={_.get(project, 'uiImagesCollection.items[0].url')} alt=""/>
+
+                  }
+                  
                 </div>
               </div>
             </div>
@@ -253,6 +279,10 @@ const Project = (props) => {
             <div className="box-concept-video">
               <div>
                 <div className="content-sections">
+                  <TitleProjectSection 
+                    original="Concept Video"
+                    byContent={_.get(project, 'conceptTitle')}
+                  />  
                   <h1>Concept Video</h1>
                   <p>{_.get(project, 'conceptVideoText')}</p>
                 </div>
@@ -266,6 +296,14 @@ const Project = (props) => {
             </div>
           )
         }
+
+        <div className="box-showcase-container">
+          <ImageFrame 
+            innerWidth={innerWidth}
+            imagesShowcase={_.get(project, 'showcaseImagesCollection.items')}
+          />
+        </div>
+
         <div className="container-next">
           {
             totalProjects === currentId ? (

@@ -66,26 +66,27 @@
 .main-title {
   position: absolute;
   width: auto;
-  left: -73px;
   top: 200px;
   z-index: 20;
   margin: 0;
+  left: 0;
   .box-main-title {
     display: flex;
     flex-direction: column;
-
+    
   }
   & svg {
     height: 147px;
   }
   // &.first {
-  //   left: 60px;
-  //   top: 200px;
-  //   & svg {
-  //     height: initial;
-  //   }
-  // }
+    //   left: 60px;
+    //   top: 200px;
+    //   & svg {
+      //     height: initial;
+      //   }
+      // }
   @include desktop {
+    left: -73px;
     top: 40%;
     left: calc(27% - 60px);
     & svg {

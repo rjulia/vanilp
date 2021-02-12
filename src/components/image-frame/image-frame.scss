@@ -1,0 +1,12 @@
+@import '../../scss/variables.scss';
+
+.box-showcase-box {
+  margin: 50px 0;
+  img {
+    width: 100%;
+  }
+  @include desktop {
+    margin: 200px 0;
+
+  }
+}
