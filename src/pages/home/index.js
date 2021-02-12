@@ -99,7 +99,7 @@ const Home = props => {
       <div className="secction container">
         <PlanetHeader innerWidth={innerWidth} />
         <Menu/>
-        <Parallax className="main-title first" x={[0, -30]} >
+        <Parallax className="main-title first" x={innerWidth > 420 ? [0, -30] : [5, 0]} >
           <div className="box-main-title">
             <Vani innerWidth={innerWidth}/>
             <Ux innerWidth={innerWidth}/>

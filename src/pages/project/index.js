@@ -154,8 +154,9 @@ const Project = (props) => {
             <p>{_.get(project, 'description')}</p>
           </div>
           <div className="content-image" ref={refFirstSections}>
-          <animated.div 
-            style={{ ...springFirstSection, display: 'block', margin: '0px auto' }}>
+            <h1>{_.get(project, 'title')}</h1>
+            <animated.div 
+              style={{ ...springFirstSection, display: 'block', margin: '0px auto' }}>
               <img
                 src={_.get(project, 'picture.url')}
                 alt={_.get(project, 'picture.title')}

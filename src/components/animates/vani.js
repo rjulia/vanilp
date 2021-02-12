@@ -22,7 +22,7 @@ const Vani = ({innerWidth}) => {
       zIndex: 10
     }}
     width={424} 
-    viewBox="0 0 500 140" >
+    viewBox="0 0 500 40" >
     <defs>
       <filter id="water">
         <AnimFeTurbulence type="fractalNoise" baseFrequency={freq} numOctaves="1.5" result="TURB" seed="8" />

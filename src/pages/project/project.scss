@@ -25,6 +25,7 @@
   width: 600px;
   border-radius: 50%;
   @include desktop {
+    position: absolute;
     top: 35%;
     right: 100px;
     height: 600px;
@@ -63,9 +64,10 @@
   position: relative;
   display: flex;
   flex-direction: column-reverse;
-  h1 {
+  .content-head h1 {
     top: 0;
     position: absolute;
+    display: none;
     color: $text;
     font-size: 48px;
     line-height: 52px;
@@ -83,11 +85,18 @@
 
   .content-image {
     padding-top: 80px;
-
     width: 100%;
     display: flex;
     justify-content: center;
-
+    flex-direction: column;
+    h1 {
+      position: relative;
+      color: $text;
+      font-size: 48px;
+      line-height: 52px;
+      font-weight: 600;
+      font-family: $outstanding;
+    }
     img {
       max-height: 300px;
       width: auto;
@@ -100,23 +109,27 @@
 
     .content-head {
       max-width: 648px;
+      h1 {
+        top: initial;
+        display: block;
+        position: relative;
+        font-size: 72px;
+        line-height: 80px;
+      }
+  
+      p {
+        font-size: 20px;
+        line-height: 32px;
+      }
     }
 
-    h1 {
-      top: initial;
-      position: relative;
-      font-size: 72px;
-      line-height: 80px;
-    }
 
-    p {
-      font-size: 20px;
-      line-height: 32px;
-    }
 
     .content-image {
       padding-top: 0;
-
+      h1 {
+        display: none;
+      }
       img {
         max-height: 700px;
       }
