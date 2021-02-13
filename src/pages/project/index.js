@@ -257,7 +257,7 @@ const Project = (props) => {
                 )
               }{
                 project.uiText && (
-                  <div className="box-ui">
+                  <div className={_.get(project, 'uiImagesCollection.total') > 1 ? "box-ui" : "box-ui only-image"}>
                     <div>
                       <div className="content-sections">
                         <TitleProjectSection

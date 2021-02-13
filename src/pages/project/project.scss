@@ -382,7 +382,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
+  &.only-image {
+    margin-top: 15px;
+    height: 100%;
+  }
   &>div {
     position: relative;
     width: calc(100vw - 30px);
@@ -392,6 +395,10 @@
       width: 100%;
       display: flex;
       justify-content: center;
+      > img {
+        max-height: 500px;
+        overflow: hidden;
+      }
       p {
         color: $text;
         font-size: 15px;
@@ -447,6 +454,13 @@
       }
       .content-image {
         width: 1140px;
+        max-height: 880px;
+        overflow: hidden;
+        > img {
+          max-height: 880px;
+
+          //max-height: 100%;
+        }
 
       }
     }
