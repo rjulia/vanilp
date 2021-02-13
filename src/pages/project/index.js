@@ -102,7 +102,7 @@ const Project = (props) => {
 
   const springSecondSectionTwo = useSpring({
     opacity: inViewSecondSection ? 1 : 0,
-    transform: `translateY(${inViewSecondSection ? 30 : 800}px`,
+    transform: `translateY(${inViewSecondSection ? (innerWidth > 420): 30 ? 0 : 800}px`,
     config: { mass: 10, tension: 500, friction: 120 }
   })
 
@@ -179,7 +179,6 @@ const Project = (props) => {
                     alt={_.get(project, 'personaImagesCollection.items[0].title')}
                   />
               </animated.div>
-      
               <animated.div 
                 style={{ 
                   ...springSecondSectionTwo,
@@ -212,7 +211,7 @@ const Project = (props) => {
                     original="Competitive Analysis"
                     byContent={_.get(project, 'competitiveTitle')}
                   />
-                  <p>{_.get(project, 'personaText')}</p>
+                 {innerWidth < 420 &&  <p>{_.get(project, 'personaText')}</p>}
                 </div>
                 <div className="content-image">
                   <animated.div 
@@ -223,6 +222,7 @@ const Project = (props) => {
                     />
                   </animated.div >
                 </div>
+                {innerWidth > 420 &&  <p>{_.get(project, 'personaText')}</p>}
               </div>
             </div>
           )
@@ -284,11 +284,10 @@ const Project = (props) => {
                     original="Concept Video"
                     byContent={_.get(project, 'conceptTitle')}
                   />  
-                  <h1>Concept Video</h1>
                   <p>{_.get(project, 'conceptVideoText')}</p>
                 </div>
                 <div className="content-image">
-                  <video width="800" controls>
+                  <video width="100%" controls>
                     <source src={_.get(project, 'conceptVideoVideo.url')} type="video/mp4" />
                     Your browser does not support HTML video.
                   </video>

@@ -17,9 +17,9 @@ export const getProjects = async () => {
         Authorization: `Bearer ${process.env.REACT_APP_CONTENFUL_TOKEN}`,
       }
     })
+    console.log(response.data)
 
     return response.data
-
 
   } catch (error) {
     console.log("error", error);

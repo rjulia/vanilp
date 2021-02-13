@@ -110,11 +110,11 @@ const Home = props => {
         <Parallax className="box-whale" y={[-10, 30]} tagOuter="div">
           <Whale innerWidth={innerWidth}/>
         </Parallax>
-        <Parallax className="box-bubbles" y={innerWidth > 420 ? [0, 200] : [40, 120]}>
+        <Parallax className="box-bubbles" y={innerWidth > 420 ? [0, 200] : [0, 120]}>
           <Bubbles innerHeight={innerHeight} pageYOffset={pageYOffset}/>
         </Parallax>
       </div>
-      <div className="secction" ref={ref}>
+      <div className="secction section-about" ref={ref}>
         <div className="oval-violet"/>
         <Element name="about" className="element" id="about"></Element>
         <Parallax className="box-sections">

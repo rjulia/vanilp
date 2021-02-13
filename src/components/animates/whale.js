@@ -4,7 +4,7 @@ import whale from '../../assets/img/Whale.png'
 
 const Whale = ({innerWidth}) => {
   const { top, opacity } = useSpring({
-    top: 50,
+    top: innerWidth > 420 ? 50 : 300,
     opacity: 1,
     from: { 
       top: 400,

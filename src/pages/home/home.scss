@@ -22,10 +22,18 @@
   width: 100%;
   height: 100vh;
   &.section-project {
-    height: 170vh;
-    @include desktop {
+    height: 125vh;
+  }
+  &.section-about {
+    height: 140vh
+  }
+  @include desktop {
+    &.section-project {
       padding-top: 50px;
       height: 100vh;
+    }
+    &.section-about {
+      height: 100vh
     }
   }
 }
@@ -90,6 +98,9 @@
     left: calc(27% - 60px);
     & svg {
       height: initial;
+      &:first-child {
+        height: 147px;
+      }
     }
   }
 }
