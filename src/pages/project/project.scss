@@ -5,6 +5,7 @@
   background-color: $white-smoke;
   padding-top: 20px;
   overflow-x: hidden;
+  position: relative;
   @include desktop {
     padding-top: 0;
     width: 100%;
@@ -16,13 +17,13 @@
 
 .oval-blueLight {
   position: absolute;
-  top: 45%;
-  right: -100px;
+  top: 8%;
+  right:-300px;
   transform: translateY(-50%) rotate(8deg);
   background: rgba(145, 240, 220, 1);
   background: radial-gradient(ellipse at center, rgba(145, 240, 220,1) 0%, rgba(145, 240, 220,0) 70%); 
-  height: 300px;
-  width: 600px;
+  height: 450px;
+  width: 900px;
   border-radius: 50%;
   @include desktop {
     position: absolute;
@@ -235,6 +236,13 @@
       img {
         width: 100%;
       }
+
+      p {
+        color: $text;
+        font-size: 15px;
+        line-height: 18px;
+        font-family: $general;
+      }
     }
 
     .content-sections {
@@ -276,7 +284,7 @@
         h1 {
           font-size: 36px;
           line-height: 40px;
-        margin-bottom: 0;
+          margin-bottom: 0;
 
         }
   
@@ -291,38 +299,44 @@
 }
 
 .box-wireframes {
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-
+  
   &>div {
     position: relative;
     display: flex;
     flex-direction: column-reverse;
-
+    
     .content-image {
       position: relative;
       img {
         width: 100%;
       }
+      p {
+        color: $text;
+        font-size: 15px;
+        line-height: 18px;
+        font-family: $general;
+      }
     }
-
+    
     .content-sections {
-
+      
       display: flex;
       flex-direction: column;
       justify-self: start;
       margin-top: 60px;
       h1 {
         margin: 0;
+        margin-bottom: 15px;
         color: $text;
         font-size: 24px;
         line-height: 28px;
         font-weight: 600;
         font-family: $outstanding;
       }
-
+      
       p {
         color: $text;
         font-size: 15px;
@@ -331,8 +345,9 @@
       }
     }
   }
-
+  
   @include desktop {
+    height: 100vh;
     height: auto;
     margin-top: 120px;
     padding-bottom: 120px;
@@ -350,6 +365,7 @@
         h1 {
           font-size: 36px;
           line-height: 40px;
+          margin-bottom: 0;
         }
   
         p {
@@ -362,7 +378,7 @@
 }
 
 .box-ui {
-  height: 100vh;
+  height: 125vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -376,6 +392,12 @@
       width: 100%;
       display: flex;
       justify-content: center;
+      p {
+        color: $text;
+        font-size: 15px;
+        line-height: 18px;
+        font-family: $general;
+      }
     }
 
     .content-sections {
@@ -399,6 +421,7 @@
   }
 
   @include desktop {
+    height: 100vh;
     &>div {
       display: flex;
       flex-direction: column;
@@ -431,14 +454,14 @@
 }
 
 .box-concept-video {
-  height: 100vh;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 
   & > div {
     position: relative;
-
+    width: 100%;
     .content-image {
       position: relative;
       flex: 1 1 65%;
@@ -446,28 +469,34 @@
       img {
         width: 100%;
       }
+      p {
+        color: $text;
+        font-size: 15px;
+        line-height: 18px;
+        font-family: $general;
+      }
     }
 
     .content-sections {
       flex: 1 1 35%;
-      padding: 0 30px;
       display: flex;
       flex-direction: column;
       justify-self: start;
-
+      
       h1 {
         margin: 0;
         color: $text;
-        font-size: 36px;
-        line-height: 40px;
+        font-size: 24px;
+        line-height: 28px;
         font-weight: 600;
         font-family: $outstanding;
+        margin-bottom: 15px;
       }
-
+      
       p {
         color: $text;
-        font-size: 20px;
-        line-height: 32px;
+        font-size: 15px;
+        line-height: 18px;
         font-family: $general;
       }
     }
@@ -481,12 +510,25 @@
       display: flex;
       flex-direction: row;
     }
+    .content-sections {
+      padding: 0 30px;
+      h1 {
+        margin-bottom: 0;
+        font-size: 36px;
+        line-height: 40px;
+        font-weight: 600;
+      }
+      p {
+        font-size: 20px;
+        line-height: 32px;
+      }
+    }
   }
 }
 
 .footer-project {
   width: 100vw;
-  height: 80px;
+  height: 90px;
   background-color: $text_dark;
   position: relative;
 
@@ -497,12 +539,26 @@
     margin: 0 auto;
     display: flex;
     color: $white-smoke;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    height: 80px;
+    height: 90px;
 
     & p {
       margin: 0;
+      font-size: 14px;
+      &:first-child {
+        margin-bottom: 12px;  
+      }
+    }
+  }
+  @include desktop { 
+    height: 80px;
+    .content-project-copyright {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      height: 80px;
     }
   }
 }
@@ -510,7 +566,7 @@
   width: 100%;
   display: flex;
   justify-content: flex-end;
-  padding-bottom: 80px;
+  padding-bottom: 40px;
   .button-next {
     display: flex;
     justify-content: center;
@@ -559,7 +615,11 @@
 
     }
   }
-}
-a[disabled] {
-  pointer-events: none;
+  @include desktop { 
+    padding-bottom: 80px;
+
+  }
+  a[disabled] {
+    pointer-events: none;
+  }
 }

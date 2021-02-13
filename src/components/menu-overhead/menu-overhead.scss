@@ -22,6 +22,9 @@
       right: 89px;
       margin-bottom: 60px;
     }
+    &.project-close-icon {
+
+    }
   }
   &.is-open-conteiner {
     z-index: 40;
@@ -66,16 +69,27 @@
 
 .box-menu-overhead {
   position: fixed;
+  box-sizing: border-box;
   width: calc(100vw - 32px);
   height: 100vh;
   margin-top: 60px;
   margin: 40px 16px 0;
   padding-top: 35px;
-  & .menu {
+  &.project-box-menu-overhead {
+    margin: 0px 16px 0;
+    padding-top: 22px;
+    padding-right: 3px;
+    @include desktop {
+      padding-top: 35px;
+      margin: 20px 60px 0;
+    }
+
+  }
+  .menu {
     list-style: none;
     position: absolute;
     padding-left: 0px;
-    & a {
+    a {
       text-decoration: none;
     }
     &.is-open {

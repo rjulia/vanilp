@@ -138,7 +138,12 @@ const Home = props => {
       </div>
       <Element name="contact" className="element" id="contact"></Element>
       <Footer innerWidth={innerWidth} />
-      <MenuOverhead onOpenMenu={onOpenMenu} isOpenMenu={isOpenMenu} location={location}/>
+      <MenuOverhead 
+        onOpenMenu={onOpenMenu} 
+        isOpenMenu={isOpenMenu} 
+        location={location}
+        isAtHome={true}
+      />
     </div>
   )
 }
