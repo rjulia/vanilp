@@ -99,8 +99,13 @@
       font-family: $outstanding;
     }
     img {
-      max-height: 300px;
-      width: auto;
+      width: 100%;
+    }
+    @include desktop {
+      img {
+        max-height: 300px;
+        width: auto;
+      }
     }
   }
 

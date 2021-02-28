@@ -106,7 +106,9 @@ const Project = (props) => {
 
   const springSecondSectionTwo = useSpring({
     opacity: inViewSecondSection ? 1 : 0,
-    transform: `translateY(${inViewSecondSection ? 50 : 400}px`,
+    transform: innerWidth > 420 
+                ? `translateY(${inViewSecondSection ? 50 : 400}px`
+                : `translateY(${inViewSecondSection ? 0 : 400}px`,
     config: { mass: 5, tension: 300, friction: 80 }
   })
 
@@ -160,7 +162,12 @@ const Project = (props) => {
                 <div className="content-image" ref={refFirstSections}>
                   <h1>{_.get(project, 'title')}</h1>
                   <animated.div
-                    style={{ ...springFirstSection, display: 'block', margin: '0px auto' }}>
+                    style={{ 
+                      ...springFirstSection, 
+                      display: 'block', 
+                      margin: '0px auto',
+                      maxWidth: innerWidth > 420 ? 'auto' : 'calc(100vw - 20px)',
+                      }}>
                     <img
                       src={_.get(project, 'picture.url')}
                       alt={_.get(project, 'picture.title')}
