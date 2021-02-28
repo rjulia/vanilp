@@ -12,7 +12,7 @@ export default function MiniCartProvider({ children }) {
 
   // internal state
   const [projects, setProjects] = useState({})
-  const [project, setProject] = useState({})
+  const [project, setProject] = useState(undefined)
   const [nextProject, setNextProject] = useState({})
 
   const [loading, setLoading] = useState(false)

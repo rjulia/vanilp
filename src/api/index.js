@@ -17,7 +17,6 @@ export const getProjects = async () => {
         Authorization: `Bearer ${process.env.REACT_APP_CONTENFUL_TOKEN}`,
       }
     })
-    console.log(response.data)
 
     return response.data
 
@@ -88,6 +87,7 @@ export const getProject = async (id) => {
               }
               conceptTitle
               conceptVideoText
+              conceptUrlVideo
               conceptVideoVideo{
                 url
                 title

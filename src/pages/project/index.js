@@ -1,6 +1,9 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-unused-vars */
 import _ from 'lodash'
 import React, { useEffect, useState, useRef } from 'react'
 import { Link } from "react-router-dom"
+import ReactPlayer from 'react-player'
 import { useInView } from 'react-intersection-observer';
 import { useSpring, animated } from 'react-spring'
 import { useProjects } from '../../hook'
@@ -33,8 +36,7 @@ const Project = (props) => {
   const [innerHeight, setInnerHeight] = useState(0)
   const [innerWidth, setInnerWidth] = useState(0)
   const [isOpenMenu, setIsOpenMenu] = useState(false)
-
-
+  const youTubeVideo =  _.get(project, 'conceptUrlVideo')
   const handleScroll = (event) => {
     const posY = ref.current.getBoundingClientRect().top;
     setInnerHeight(window.innerHeight)
@@ -49,6 +51,8 @@ const Project = (props) => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+
 
   useEffect(() => {
     apiGetProject(location)
@@ -96,14 +100,14 @@ const Project = (props) => {
 
   const springSecondSection = useSpring({
     opacity: inViewSecondSection ? 1 : 0,
-    transform: `translateY(${inViewSecondSection ? 0 : 600}px`,
+    transform: `translateY(${inViewSecondSection ? 0 : 400}px`,
     config: { mass: 5, tension: 300, friction: 80 }
   })
 
   const springSecondSectionTwo = useSpring({
     opacity: inViewSecondSection ? 1 : 0,
-    transform: `translateY(${inViewSecondSection ? (innerWidth > 420) : 30 ? 0 : 800}px`,
-    config: { mass: 10, tension: 500, friction: 120 }
+    transform: `translateY(${inViewSecondSection ? 50 : 400}px`,
+    config: { mass: 5, tension: 300, friction: 80 }
   })
 
   const { ref: refThirdSection, inView: inViewThirdSection } = useInView({
@@ -132,13 +136,11 @@ const Project = (props) => {
     config: { mass: 5, tension: 300, friction: 80 }
   })
 
-  console.log(innerWidth > 420, innerWidth < 420)
-
   return (
     <div ref={ref} className="container-fluid-project">
       <Helmet title={`${_.get(project, 'title')} | VANI IP`} />
       {
-        loading ? <Spinner /> :
+        loading || _.isEmpty(project) ? <Spinner /> :
           <>
             <div className="oval-blueLight" />
             <div className="menu-container">
@@ -167,6 +169,31 @@ const Project = (props) => {
                 </div>
               </div>
               {
+                project.competitiveText && (
+                  <div className="box-competitive">
+                    <div ref={refThirdSection}>
+                      <div className="content-sections">
+                        <TitleProjectSection
+                          original="Competitive Analysis"
+                          byContent={_.get(project, 'competitiveTitle')}
+                        />
+                        {innerWidth > 420 && <p>{_.get(project, 'competitiveText')}</p>}
+                      </div>
+                      <div className="content-image">
+                        <animated.div
+                          style={{ ...springThirdSection, display: 'block', margin: '0px auto' }}>
+                          <img
+                            src={_.get(project, 'competitiveImage.url')}
+                            alt={_.get(project, 'competitiveImage.title')}
+                          />
+                        </animated.div >
+                        {innerWidth < 420 && <p>{_.get(project, 'competitiveText')}</p>}
+                      </div>
+                    </div>
+                  </div>
+                )
+              }
+              {
                 project.personaText && (
                   <div className="box-persona">
                     <div className="content-image" ref={refSecondSection}>
@@ -186,8 +213,8 @@ const Project = (props) => {
                         style={{
                           ...springSecondSectionTwo,
                           display: 'block',
+                          margin: '0px auto',
                           maxWidth: '700px',
-                          margin: '0px auto'
                         }}>
                         <img
                           className="second-image"
@@ -202,31 +229,6 @@ const Project = (props) => {
                         byContent={_.get(project, 'personaTitle')}
                       />
                       <p>{_.get(project, 'personaText')}</p>
-                    </div>
-                  </div>
-                )
-              }
-              {
-                project.competitiveText && (
-                  <div className="box-competitive">
-                    <div ref={refThirdSection}>
-                      <div className="content-sections">
-                        <TitleProjectSection
-                          original="Competitive Analysis"
-                          byContent={_.get(project, 'competitiveTitle')}
-                        />
-                        {innerWidth > 420 && <p>{_.get(project, 'personaText')}</p>}
-                      </div>
-                      <div className="content-image">
-                        <animated.div
-                          style={{ ...springThirdSection, display: 'block', margin: '0px auto' }}>
-                          <img
-                            src={_.get(project, 'competitiveImage.url')}
-                            alt={_.get(project, 'competitiveImage.title')}
-                          />
-                        </animated.div >
-                        {innerWidth < 420 && <p>{_.get(project, 'personaText')}</p>}
-                      </div>
                     </div>
                   </div>
                 )
@@ -292,23 +294,30 @@ const Project = (props) => {
                         {innerWidth > 420 && <p>{_.get(project, 'conceptVideoText')}</p>}
                       </div>
                       <div className="content-image">
-                        <video width="100%" controls>
-                          <source src={_.get(project, 'conceptVideoVideo.url')} type="video/mp4" />
-                    Your browser does not support HTML video.
-                  </video>
+                        {
+                          youTubeVideo  
+                          ? <ReactPlayer url={youTubeVideo}  width={'100%'} height="450px"/> 
+                          : <video width="100%" controls>
+                              <source src={_.get(project, 'conceptVideoVideo.url')} type="video/mp4" />
+                              Your browser does not support HTML video.
+                            </video>
+                        }
                         {innerWidth < 420 && <p>{_.get(project, 'personaText')}</p>}
                       </div>
                     </div>
                   </div>
                 )
               }
-
-              <div className="box-showcase-container">
-                <ImageFrame
-                  innerWidth={innerWidth}
-                  imagesShowcase={_.get(project, 'showcaseImagesCollection.items')}
-                />
-              </div>
+              {
+                project.showcaseImagesCollection.items.length > 0 && (
+                  <div className="box-showcase-container">
+                    <ImageFrame
+                      innerWidth={innerWidth}
+                      imagesShowcase={_.get(project, 'showcaseImagesCollection.items')}
+                    />
+                  </div>
+                )
+              }
 
               <div className="container-next">
                 {

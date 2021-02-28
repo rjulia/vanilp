@@ -19,7 +19,7 @@ const Footer = ({ innerWidth }) => {
               Get in touch
             </h3>
             <p className="content-footer">
-              Thank you for viewing my profile.
+              Thank you for viewing my profile.<br/>
               Contact me if you have any questions or anything.
               I definitely have so much more to share with you.
             </p>

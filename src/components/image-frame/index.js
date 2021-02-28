@@ -5,7 +5,6 @@ import './image-frame.scss'
 const ImageFrame = ({innerWidth, imagesShowcase}) => {
   const [url, setUrl] = useState('')
   const [description, setDescription] = useState('')
-  console.log(innerWidth)
   useEffect(() => {
     setUrl(innerWidth < 420 
       ? _.get(imagesShowcase, '[0].url') 
